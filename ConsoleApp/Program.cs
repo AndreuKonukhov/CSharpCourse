@@ -109,12 +109,19 @@ namespace Model
             Console.WriteLine(randomPerson.PrintPerson());
         }
 
-        //TODO: XML
+        /// <summary>
+        /// Вывод на консоль информации о каждом человеке
+        /// в списке людей.
+        /// </summary>
+        /// <param name="listOfPersons">Список людей</param>
+        /// <exception cref="NullReferenceException">
+        /// Список людей не должен принимать значение Null</exception>
         private static void PrintList(PersonList listOfPersons)
         {
             if (listOfPersons == null)
             {
-                throw new NullReferenceException("Значение списка людей - Null.");
+                throw new NullReferenceException
+                    ("Значение списка людей - Null.");
             }
 
             if (listOfPersons.CountPersons != 0)

@@ -1,4 +1,4 @@
-﻿
+
 namespace Model
 {
     /// <summary>
@@ -33,7 +33,7 @@ namespace Model
         /// Пустой список людей.</exception>
         public void DeletePerson(Person person)
         {
-            _listOfPersons.RemoveAll(_listOfPersons => _listOfPersons == person);
+            _ = _listOfPersons.RemoveAll(_listOfPersons => _listOfPersons == person);
         }
 
         /// <summary>
@@ -94,7 +94,7 @@ namespace Model
         /// <summary>
         /// Функция, которая позволяет очистить список.
         /// </summary>
-        public void ClearList() 
+        public void ClearList()
         {
             _listOfPersons.Clear();
         }

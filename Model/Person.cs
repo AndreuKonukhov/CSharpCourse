@@ -38,7 +38,7 @@ namespace Model
         /// Максимальный возраст человека.
         /// </summary>
         private const int MaxAge = 120;
-         
+
         /// <summary>
         /// Ввод имени человека.
         /// </summary>
@@ -125,7 +125,7 @@ namespace Model
         /// <param name="surname">Фамилия человека.</param>
         /// <param name="age">Возраст человека.</param>
         /// <param name="gender">Пол человека.</param>
-        public Person (string name, string surname, int age, Gender gender)
+        public Person(string name, string surname, int age, Gender gender)
         {
             Name = name;
             Surname = surname;
@@ -133,7 +133,9 @@ namespace Model
             Gender = gender;
         }
 
-        //TODO: XML
+        /// <summary>
+        /// Конструктор по умолчанию
+        /// </summary>
         public Person()
         {
         }
@@ -174,21 +176,18 @@ namespace Model
 
             var randPerson = new Random();
 
-            //TODO: remove comments
-            //Случайный пол человека.
+
+            //Генерация случайной личности.
             Gender randomGender = randPerson.Next(0, 2) == 0
                 ? Gender.Male
                 : Gender.Female;
 
-            //Случайное имя человека.
             string randomName = randomGender == Gender.Male
                 ? maleNames[randPerson.Next(maleNames.Length)]
                 : femaleNames[randPerson.Next(femaleNames.Length)];
 
-            //Случайная фамилия человека.
             var randomSurname = surnames[randPerson.Next(surnames.Length)];
 
-            //Случайный возраст человека.
             var randomAge = randPerson.Next(MinAge, MaxAge);
 
             return new Person(randomName, randomSurname, randomAge, randomGender);

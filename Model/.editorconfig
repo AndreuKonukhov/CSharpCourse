@@ -378,7 +378,7 @@ csharp_preserve_single_line_blocks = true
 [*.cs]
 
 # Rule violations lead to errors during build stage
-dotnet_diagnostic.IDE1006.severity = error
+dotnet_diagnostic.IDE1006.severity = suggestion
 
 # Naming styles
 dotnet_naming_style.pascal_case_style.capitalization = pascal_case

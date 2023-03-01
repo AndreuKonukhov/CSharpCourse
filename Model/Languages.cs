@@ -1,6 +1,8 @@
 namespace Model
 {
-    //TODO: XML
+    /// <summary>
+    /// Перечисление языков.
+    /// </summary>
     public enum Languages
     {
         /// <summary>
