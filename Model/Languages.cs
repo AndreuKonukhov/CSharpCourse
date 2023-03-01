@@ -1,6 +1,6 @@
-﻿
 namespace Model
 {
+    //TODO: XML
     public enum Languages
     {
         /// <summary>

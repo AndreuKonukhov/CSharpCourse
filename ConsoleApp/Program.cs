@@ -105,12 +105,11 @@ namespace Model
                 }
             }
 
-            //Генерация и вывод случайного человека
             var randomPerson = Person.GetRandomAvenger();
             Console.WriteLine(randomPerson.PrintPerson());
-
         }
 
+        //TODO: XML
         private static void PrintList(PersonList listOfPersons)
         {
             if (listOfPersons == null)
@@ -210,7 +209,7 @@ namespace Model
                         || exception.GetType() == typeof(ArgumentException))
                     {
                         Console.WriteLine($"\nОшибка!!! {exception.Message}" +
-                        $" Повторите ввод заного.\n");
+                            $" Повторите ввод заного.\n");
                     }
                     else
                     {

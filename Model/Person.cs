@@ -1,4 +1,4 @@
-﻿
+
 using System.Globalization;
 using System.Text.RegularExpressions;
 
@@ -133,6 +133,7 @@ namespace Model
             Gender = gender;
         }
 
+        //TODO: XML
         public Person()
         {
         }
@@ -173,6 +174,7 @@ namespace Model
 
             var randPerson = new Random();
 
+            //TODO: remove comments
             //Случайный пол человека.
             Gender randomGender = randPerson.Next(0, 2) == 0
                 ? Gender.Male
@@ -231,8 +233,8 @@ namespace Model
         /// <exception cref="FormatException"></exception>
         private void CheckToLanguage()
         {
-            if ((string.IsNullOrEmpty(Name) == false)
-                && (string.IsNullOrEmpty(Surname) == false))
+            if (!string.IsNullOrEmpty(Name)
+                && !string.IsNullOrEmpty(Surname))
             {
                 var nameLanguage = DefinitionLanguage(Name);
                 var surnameLanguage = DefinitionLanguage(Surname);
