@@ -1,4 +1,5 @@
 ﻿using Model;
+using System;
 
 namespace Model
 {
@@ -84,27 +85,10 @@ namespace Model
             //Чтение персоны с клавиатуры
             Console.WriteLine("\n\t-=Проверка ввода человека" +
                               " с клавиатуры=-\n");
-            try
-            {
-                Person inputPerson = InputPersonByConsole();
-                Console.WriteLine("\nВы ввели следующего человека:\n" +
-                                  $"{inputPerson.PrintPerson()}\n");
-            }
-            catch (Exception exception)
-            {
-                if (exception.GetType()
-                        == typeof(IndexOutOfRangeException)
-                        || exception.GetType() == typeof(FormatException)
-                        || exception.GetType() == typeof(ArgumentException))
-                {
-                    Console.WriteLine
-                    ($"Ошибка! {exception.Message}.");
-                }
-                else
-                {
-                    throw exception;
-                }
-            }
+
+            Person inputPerson = InputPersonByConsole();
+            Console.WriteLine("\nВы ввели следующего человека:\n" +
+                              $"{inputPerson.PrintPerson()}\n");
 
             var randomPerson = Person.GetRandomAvenger();
             Console.WriteLine(randomPerson.PrintPerson());
