@@ -50,11 +50,17 @@ namespace Model
             }
             set
             {
+                _ = DefinitionLanguage(value);
                 _name = ChangeRegister(value);
 
                 if (_name != null)
                 {
                     CheckToLanguage();
+                }
+                else
+                {
+                    throw new NullReferenceException
+                        ("Имя не должно быть пустым");
                 }
             }
         }
@@ -70,6 +76,7 @@ namespace Model
             }
             set
             {
+                _ = DefinitionLanguage(value);
                 _surname = ChangeRegister(value);
 
                 if (_surname != null)
@@ -90,15 +97,15 @@ namespace Model
             }
             set
             {
-                if (value < MinAge || value > MaxAge)
+                if (value > MinAge && value < MaxAge)
                 {
-                    throw new IndexOutOfRangeException("Возраст человека" +
-                          $" должен находится в диапазоне от {MinAge} до" +
-                          $" {MaxAge} лет");
+                    _age = value;
                 }
                 else
                 {
-                    _age = value;
+                    throw new IndexOutOfRangeException("Возраст человека" +
+                    $" должен находится в диапазоне от {MinAge} до" +
+                    $" {MaxAge} лет");
                 }
             }
         }

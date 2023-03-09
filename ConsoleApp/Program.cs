@@ -22,6 +22,7 @@ namespace Model
             listAvengers.AddPerson(natasha);
 
             //Добавление вторых трёх мстителей в список Bvengers
+            
             var listBvengers = new PersonList();
             var cap = new Person("Steven", "Rogers", 112, Gender.Male);
             var thor = new Person("Thor", "Odinson", 39, Gender.Male);
