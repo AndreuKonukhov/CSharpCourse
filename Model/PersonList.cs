@@ -57,7 +57,7 @@ namespace Model
             return listOfIndexes;
         }
 
-
+        //TODO: XML
         public void DeletePersonByIndex(int index)
         {
             IsIndexInArray(index);
