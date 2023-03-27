@@ -7,7 +7,7 @@ namespace Model
     /// <summary>
     /// Класс описывающий человека.
     /// </summary>
-    public class Person
+    public abstract class PersonBase
     {
         /// <summary>
         /// Имя человека.
@@ -44,10 +44,7 @@ namespace Model
         /// </summary>
         public string Name
         {
-            get
-            {
-                return _name;
-            }
+            get => _name;
             set
             {
                 _ = DefinitionLanguage(value);
@@ -70,10 +67,7 @@ namespace Model
         /// </summary>
         public string Surname
         {
-            get
-            {
-                return _surname;
-            }
+            get => _surname;
             set
             {
                 _ = DefinitionLanguage(value);
@@ -91,10 +85,7 @@ namespace Model
         /// </summary>
         public int Age
         {
-            get
-            {
-                return _age;
-            }
+            get => _age;
             set
             {
                 if (value > MinAge && value < MaxAge)
@@ -115,14 +106,8 @@ namespace Model
         /// </summary>
         public Gender Gender
         {
-            get
-            {
-                return _gender;
-            }
-            set
-            {
-                _gender = value;
-            }
+            get => _gender;
+            set => _gender = value;
         }
 
         /// <summary>
@@ -132,7 +117,7 @@ namespace Model
         /// <param name="surname">Фамилия человека.</param>
         /// <param name="age">Возраст человека.</param>
         /// <param name="gender">Пол человека.</param>
-        public Person(string name, string surname, int age, Gender gender)
+        public PersonBase(string name, string surname, int age, Gender gender)
         {
             Name = name;
             Surname = surname;
@@ -143,7 +128,7 @@ namespace Model
         /// <summary>
         /// Конструктор по умолчанию
         /// </summary>
-        public Person()
+        public PersonBase()
         {
         }
 
@@ -155,49 +140,6 @@ namespace Model
         public string PrintPerson()
         {
             return $"{Name} {Surname}; Возраст - {Age}; Пол - {Gender}";
-        }
-
-        /// <summary>
-        /// Метод для генерации человека со случайными  именем, фамилией,
-        /// возрастом и полом. 
-        /// </summary>
-        /// <returns>Объект Person cо случайными значениями атрибутов имя,
-        /// фамилия, возраст и пол.</returns>
-        public static Person GetRandomAvenger()
-        {
-            string[] maleNames =
-            {
-                "Tony", "Thor", "Bruce", "Steven", "Clinton"
-            };
-
-            string[] femaleNames =
-            {
-                "Wanda", "Natasha", "Patricia", "Jane", "Jen",
-            };
-
-            string[] surnames =
-            {
-                "Stark", "Odinson", "Banner", "Rogers", "Barton",
-                "Shade", "Maximoff", "Romanova", "Walker", "Danvers"
-            };
-
-            var randPerson = new Random();
-
-
-            //Генерация случайной личности.
-            Gender randomGender = randPerson.Next(0, 2) == 0
-                ? Gender.Male
-                : Gender.Female;
-
-            string randomName = randomGender == Gender.Male
-                ? maleNames[randPerson.Next(maleNames.Length)]
-                : femaleNames[randPerson.Next(femaleNames.Length)];
-
-            var randomSurname = surnames[randPerson.Next(surnames.Length)];
-
-            var randomAge = randPerson.Next(MinAge, MaxAge);
-
-            return new Person(randomName, randomSurname, randomAge, randomGender);
         }
 
 
