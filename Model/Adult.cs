@@ -44,6 +44,9 @@ namespace Model
             set => _placeWork = value;
         }
 
+        /// <summary>
+        /// Ввод семейного статуса человека.
+        /// </summary>
         public Adult FamilyStatus
         {
             get => _familyStatus;
