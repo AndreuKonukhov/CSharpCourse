@@ -1,3 +1,4 @@
+
 namespace Model
 {
     /// <summary>
@@ -134,6 +135,117 @@ namespace Model
                 $"Отец: {fatherStatus};\n" +
                 $"Мать: {motherStatus};\n" +
                 $"Школа: {schoolStatus}\n";
+        }
+
+        /// <summary>
+        /// Метод генерирующий случайного ребенка.
+        /// </summary>
+        /// <returns>Экземпляр класса Adult.</returns>
+        public static Child GetRandomPerson
+            (Gender randomGender = Gender.Unknown)
+        {
+            string[] maleNames =
+            {
+                "Tony", "Thor", "Bruce", "Steven", "Clinton"
+            };
+
+
+            string[] femaleNames =
+            {
+                "Wanda", "Natasha", "Patricia", "Jane", "Jen",
+            };
+
+            string[] surnames =
+            {
+                "Stark", "Odinson", "Banner", "Rogers", "Barton",
+                "Shade", "Maximoff", "Romanov", "Walker", "Danvers"
+            };
+
+            string[] schools =
+            {
+                "Energy school", "IT school",
+                "school №3",
+                "GeekBrains"
+            };
+
+            var random = new Random();
+
+            if (randomGender == Gender.Unknown)
+            {
+                var tmpNumber = random.Next(1, 3);
+                randomGender = tmpNumber == 1
+                    ? Gender.Male
+                    : Gender.Female;
+            }
+
+            string randomName = randomGender == Gender.Male
+                ? maleNames[random.Next(maleNames.Length)]
+                : femaleNames[random.Next(femaleNames.Length)];
+
+            var randomSurname = surnames[random.Next(surnames.Length)];
+
+            var randomAge = random.Next(MinAge, MaxAgeChild);
+
+            Adult randomFather = GetRandomParent(1);
+
+            Adult randomMother = GetRandomParent(2);
+
+
+            var schoolRandom = random.Next(1, 3);
+            string? randomSchool = schoolRandom == 1
+                ? schools[random.Next(schools.Length)]
+            : null;
+
+            return new Child(randomName, randomSurname, randomAge,
+                randomGender, randomFather, randomMother, randomSchool);
+        }
+
+
+        /// <summary>
+        /// Генерация случайного родителя
+        /// </summary>
+        /// <param name="a">Параметр случайного родителя.</param>
+        /// <returns>Объект класса Adult.</returns>
+        /// <exception cref="ArgumentException">
+        /// Ожидается ввод цифры 1 или 2.</exception>
+        public static Adult GetRandomParent(int a)
+        {
+            var random = new Random();
+            var parentStatus = random.Next(1, 3);
+            if (parentStatus == 1)
+            {
+                return null;
+            }
+            else
+            {
+                switch (a)
+                {
+                    case 1:
+                        return Adult.GetRandomPerson(Gender.Male);
+                    case 2:
+                        return Adult.GetRandomPerson(Gender.Female);
+                    default:
+                        throw new ArgumentException
+                            ("Необходимо ввести число 1 или 2");
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// Проверка возраста ребенка.
+        /// </summary>
+        /// <param name="age">Возраст ребенка.</param>
+        /// <exception cref="IndexOutOfRangeException">Возраст не входит
+        /// в допустимый диапазон.</exception>
+        protected override void CheckAge(int age)
+        {
+            if (age is < MinAge or > MaxAgeChild)
+            {
+                throw new IndexOutOfRangeException($"Возраст ребенка" +
+                    $" должен находится в диапазоне " +
+                    $"[{MinAge}...{MaxAgeChild}].");
+            }
         }
     }
 }
