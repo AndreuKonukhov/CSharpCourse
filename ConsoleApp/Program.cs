@@ -40,9 +40,10 @@ namespace Model
         }
 
         /// <summary>
-        /// Function which allows to print a certain list of people.
+        /// Метод, который выводит в консоль информацию о каждом человеке 
+        /// в списке людей.
         /// </summary>
-        /// <param name="personList">An instance of class PersonList.</param>
+        /// <param name="personList">Экземпляр класса PersonList.</param>
         private static void PrintList(PersonList personList)
         {
             if (personList == null)
