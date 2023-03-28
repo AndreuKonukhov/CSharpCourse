@@ -58,6 +58,10 @@ namespace Model
         }
 
         //TODO: XML
+        /// <summary>
+        /// Метод, который удаляет человека из списка по индексу
+        /// </summary>
+        /// <param name="index"> Индекс человека в списке</param>
         public void DeletePersonByIndex(int index)
         {
             IsIndexInArray(index);

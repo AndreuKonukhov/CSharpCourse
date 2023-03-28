@@ -32,11 +32,7 @@ namespace Model
         public string PassportInfo
         {
             get => _passportInfo;
-            set
-            {
-                //CheckPassportInfo(value);
-                _passportInfo = value;
-            }
+            set => _passportInfo = value;
         }
 
         /// <summary>
@@ -53,7 +49,7 @@ namespace Model
             get => _familyStatus;
             set
             {
-                //chek
+                CheckeGender(value);
                 _familyStatus = value;
             }
 
@@ -81,7 +77,7 @@ namespace Model
         /// <summary>
         /// Конструктор поумолчанию.
         /// </summary>
-        public Adult() : this("Unknown", "Unknown", 17,
+        public Adult() : this("Unknown", "Unknown", 19,
             Gender.Male, "2247 876589", null, null)
         { }
 
@@ -100,19 +96,12 @@ namespace Model
                     $"{FamilyStatus.GetNameSurname()}";
             }
 
-
-
             if (Gender.Equals(Gender.Female))
             {
-                if (FamilyStatus == null)
-                {
-                    familyStatusInfo = $"Не замужем";
-                }
-                else
-                {
-                    familyStatusInfo = $"Замужем за " +
+                familyStatusInfo = FamilyStatus == null
+                    ? $"Не замужем"
+                    : $"Замужем за " +
                     $"{FamilyStatus.GetNameSurname()}";
-                }
             }
 
             if (!string.IsNullOrEmpty(PlaceWork))
@@ -131,7 +120,7 @@ namespace Model
         /// </summary>
         /// <returns>Экземпляр класса Adult.</returns>
         public static Adult GetRandomPerson
-            (Gender randomGender = Gender.Unknown)
+            (Gender gender = Gender.Unknown)
         {
             string[] maleNames =
             {
@@ -159,15 +148,15 @@ namespace Model
 
             var random = new Random();
 
-            if (randomGender == Gender.Unknown)
+            if (gender == Gender.Unknown)
             {
                 var tmpNumber = random.Next(1, 3);
-                randomGender = tmpNumber == 1
+                gender = tmpNumber == 1
                     ? Gender.Male
                     : Gender.Female;
             }
 
-            string randomName = randomGender == Gender.Male
+            string randomName = gender == Gender.Male
                 ? maleNames[random.Next(maleNames.Length)]
                 : femaleNames[random.Next(femaleNames.Length)];
 
@@ -186,24 +175,24 @@ namespace Model
                 randomNumberPassport += random.Next(1, 10).ToString();
             }
 
-            var randomPassport = randomSeriesPassport + ' '
-                                + randomNumberPassport;
+            var randomPassport = $"{randomSeriesPassport} " +
+                                 $"{randomNumberPassport}";
 
-            Adult randomFamilyStatus = null;
+            Adult randomHuman = null;
             var statusFamily = random.Next(1, 3);
             if (statusFamily == 1)
             {
-                randomFamilyStatus = new Adult();
+                randomHuman = new Adult();
 
-                randomFamilyStatus.Gender = randomGender == Gender.Female
+                randomHuman.Gender = gender == Gender.Female
                     ? Gender.Male
                     : Gender.Female;
 
-                randomFamilyStatus.Name = randomGender == Gender.Female
+                randomHuman.Name = gender == Gender.Female
                     ? maleNames[random.Next(maleNames.Length)]
                     : femaleNames[random.Next(femaleNames.Length)];
 
-                randomFamilyStatus.Surname = surnames[random.Next(surnames.Length)];
+                randomHuman.Surname = surnames[random.Next(surnames.Length)];
             }
 
             var randonWorkPlace = random.Next(1, 3);
@@ -211,10 +200,24 @@ namespace Model
                 ? workPlaces[random.Next(workPlaces.Length)]
                 : null;
 
-            return new Adult(randomName, randomSurname, randomAge, randomGender,
-                randomPassport, randomFamilyStatus, randomWorkPlace);
+            return new Adult(randomName, randomSurname, randomAge, gender,
+                randomPassport, randomHuman, randomWorkPlace);
         }
 
+        /// <summary>
+        /// Проверка пола супруга.
+        /// </summary>
+        /// <param name="human">Экземпляр класса Adult.</param>
+        /// <exception cref="ArgumentException">Пол супругов не
+        /// должен быть одинаковым.</exception>
+        private void CheckeGender(Adult human)
+        {
+            if (human != null && human.Gender != Gender)
+            {
+                throw new ArgumentException
+                    ($"Пол супруга должен быть другим");
+            }
+        }
 
 
         /// <summary>
