@@ -88,11 +88,8 @@ namespace Model
             get => _age;
             set
             {
-                _age = value > MinAge && value < MaxAge
-                    ? value
-                    : throw new IndexOutOfRangeException("Возраст человека" +
-                    $" должен находится в диапазоне от {MinAge} до" +
-                    $" {MaxAge} лет");
+                CheckAge(value);
+                _age = value;
             }
         }
 
