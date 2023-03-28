@@ -13,32 +13,29 @@ namespace Model
         /// </summary>
         private static void Main()
         {
-            Console.WriteLine("Let's create a list and add 7 people.");
-            Console.WriteLine();
-            var listOfPeople = new PersonList();
-            var rnd = new Random();
+            Console.WriteLine("Добавить 7 случайных человек в список?\n");
+            var listPeople = new PersonList();
+            var rrandom = new Random();
 
-            for (var i = 0; i < 8; i++)
+            for (var i = 0; i < 7; i++)
             {
-                PersonBase rndPerson = rnd.Next(2) == 0
+                PersonBase randomPerson = rrandom.Next(2) == 0
                     ? Adult.GetRandomPerson()
-                    : Adult.GetRandomPerson();
-                listOfPeople.AddPerson(rndPerson);
+                    : Child.GetRandomPerson();
+                listPeople.AddPerson(randomPerson);
             }
 
             _ = Console.ReadKey();
 
-            Console.WriteLine("Let's print all people from the list.");
-            Console.WriteLine();
-            PrintList(listOfPeople);
+            Console.WriteLine("Информация о сгенерированных людях:\n");
+            PrintList(listPeople);
 
             _ = Console.ReadKey();
 
-            Console.WriteLine
-                ("Let's find out type of the forth person from the list.");
-            Console.WriteLine();
-            var person = listOfPeople.FindPersonByIndex(3);
+            Console.Write("Тип четвертого человека из списка: ");
+            var person = listPeople.FindPersonByIndex(3);
 
+            Console.Write(person.GetType());
             _ = Console.ReadKey();
         }
 
@@ -50,7 +47,7 @@ namespace Model
         {
             if (personList == null)
             {
-                throw new NullReferenceException("Null reference list.");
+                throw new NullReferenceException("Пустой список людей");
             }
 
             if (personList.NumberOfPeople != 0)
@@ -63,7 +60,7 @@ namespace Model
             }
             else
             {
-                Console.WriteLine("List is empty.");
+                Console.WriteLine("Список пуст");
             }
         }
     }
