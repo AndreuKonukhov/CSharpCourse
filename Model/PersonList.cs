@@ -9,7 +9,7 @@ namespace Model
         /// <summary>
         /// Список из объектов класса Person
         /// </summary>
-        private List<Person> _listOfPersons = new List<Person>();
+        private List<PersonBase> _listOfPersons = new List<PersonBase>();
 
         /// <summary>
         /// Количество людей в списке
@@ -20,7 +20,7 @@ namespace Model
         /// Метод, который добавляет человека в список людей.
         /// </summary>
         /// <param name="person">Объект класса Person</param>
-        public void AddPerson(Person person)
+        public void AddPerson(PersonBase person)
         {
             _listOfPersons.Add(person);
         }
@@ -31,7 +31,7 @@ namespace Model
         /// <param name="person">Объект класса Person.</param>
         /// <exception cref="InvalidOperationException">
         /// Пустой список людей.</exception>
-        public void DeletePerson(Person person)
+        public void DeletePerson(PersonBase person)
         {
             _ = _listOfPersons.RemoveAll(_listOfPersons => _listOfPersons == person);
         }
@@ -42,7 +42,7 @@ namespace Model
         /// </summary>
         /// <param name="person">Объект класса Person.</param>
         /// <returns></returns>
-        public List<int> FindIndexesOfPerson(Person person)
+        public List<int> FindIndexesOfPerson(PersonBase person)
         {
             List<int> listOfIndexes = new List<int>();
 
@@ -69,7 +69,7 @@ namespace Model
         /// </summary>
         /// <param name="index">Индекс человека в списке.</param>
         /// <returns>Объект класса Person.</returns>
-        public Person FindPersonByIndex(int index)
+        public PersonBase FindPersonByIndex(int index)
         {
             IsIndexInArray(index);
 
@@ -98,5 +98,7 @@ namespace Model
         {
             _listOfPersons.Clear();
         }
+
+        public int NumberOfPeople => _listOfPersons.Count;
     }
 }

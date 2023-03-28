@@ -32,12 +32,12 @@ namespace Model
         /// <summary>
         /// Минимальный возраст человека.
         /// </summary>
-        private const int MinAge = 0;
+        protected const int MinAge = 0;
 
         /// <summary>
         /// Максимальный возраст человека.
         /// </summary>
-        private const int MaxAge = 120;
+        protected const int MaxAge = 140;
 
         /// <summary>
         /// Ввод имени человека.
@@ -88,16 +88,11 @@ namespace Model
             get => _age;
             set
             {
-                if (value > MinAge && value < MaxAge)
-                {
-                    _age = value;
-                }
-                else
-                {
-                    throw new IndexOutOfRangeException("Возраст человека" +
+                _age = value > MinAge && value < MaxAge
+                    ? value
+                    : throw new IndexOutOfRangeException("Возраст человека" +
                     $" должен находится в диапазоне от {MinAge} до" +
                     $" {MaxAge} лет");
-                }
             }
         }
 
@@ -123,13 +118,6 @@ namespace Model
             Surname = surname;
             Age = age;
             Gender = gender;
-        }
-
-        /// <summary>
-        /// Конструктор по умолчанию
-        /// </summary>
-        public PersonBase()
-        {
         }
 
         /// <summary>
@@ -207,5 +195,18 @@ namespace Model
             return CultureInfo.CurrentCulture.TextInfo.
                 ToTitleCase(str.ToLower());
         }
+
+
+        /// <summary>
+        /// Get the information about a person.
+        /// </summary>
+        /// <returns></returns>
+        public abstract string GetInfoAdult();
+
+        /// <summary>
+        /// Check person's age.
+        /// </summary>
+        /// <param name="age">Person's age.</param>
+        protected abstract void CheckAge(int age);
     }
 }
