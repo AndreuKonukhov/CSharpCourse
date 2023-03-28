@@ -58,7 +58,7 @@ namespace Model
                 for (int i = 0; i < personList.NumberOfPeople; i++)
                 {
                     var tmpPerson = personList.FindPersonByIndex(i);
-                    Console.WriteLine(tmpPerson.GetInfoAdult());
+                    Console.WriteLine(tmpPerson.GetInfo());
                 }
             }
             else

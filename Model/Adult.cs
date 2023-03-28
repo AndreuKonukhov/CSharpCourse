@@ -89,7 +89,7 @@ namespace Model
         /// Преобразование значений полей класса в строковый формат.
         /// </summary>
         /// <returns>Информация о взрослом человеке.</returns>
-        public override string GetInfoAdult()
+        public override string GetInfo()
         {
             string familyStatusInfo = "Холост";
             string workInfo = "Не имеет работы";
@@ -215,15 +215,7 @@ namespace Model
                 randomPassport, randomFamilyStatus, randomWorkPlace);
         }
 
-        /// <summary>
-        /// Метод преобразует значения полей имени и фамилии
-        /// в строковый формат.
-        /// </summary>
-        /// <returns>Фамилия и имя человека.</returns>
-        public string GetNameSurname()
-        {
-            return $"{Name} {Surname}";
-        }
+
 
         /// <summary>
         /// Преобразует значения полей имени и фамилии

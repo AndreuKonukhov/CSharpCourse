@@ -196,12 +196,22 @@ namespace Model
                 ToTitleCase(str.ToLower());
         }
 
+        /// <summary>
+        /// Метод преобразует значения полей имени и фамилии
+        /// в строковый формат.
+        /// </summary>
+        /// <returns>Фамилия и имя человека.</returns>
+        public string GetNameSurname()
+        {
+            return $"{Name} {Surname}";
+        }
+
 
         /// <summary>
         /// Get the information about a person.
         /// </summary>
         /// <returns></returns>
-        public abstract string GetInfoAdult();
+        public abstract string GetInfo();
 
         /// <summary>
         /// Check person's age.
