@@ -51,9 +51,9 @@ namespace Model
                 throw new NullReferenceException("Пустой список людей");
             }
 
-            if (personList.NumberOfPeople != 0)
+            if (personList.CountPersons != 0)
             {
-                for (int i = 0; i < personList.NumberOfPeople; i++)
+                for (int i = 0; i < personList.CountPersons; i++)
                 {
                     var tmpPerson = personList.FindPersonByIndex(i);
                     Console.WriteLine(tmpPerson.GetInfo());

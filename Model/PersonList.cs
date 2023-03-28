@@ -12,7 +12,7 @@ namespace Model
         private List<PersonBase> _listOfPersons = new List<PersonBase>();
 
         /// <summary>
-        /// Количество людей в списке
+        /// Количество человек в списке людей
         /// </summary>
         public int CountPersons => _listOfPersons.Count;
 
@@ -102,7 +102,5 @@ namespace Model
         {
             _listOfPersons.Clear();
         }
-
-        public int NumberOfPeople => _listOfPersons.Count;
     }
 }
