@@ -50,11 +50,7 @@ namespace Model
         public Adult FamilyStatus
         {
             get => _familyStatus;
-            set
-            {
-                CheckeGender(value);
-                _familyStatus = value;
-            }
+            set => _familyStatus = value;
 
         }
 
@@ -206,22 +202,6 @@ namespace Model
             return new Adult(randomName, randomSurname, randomAge, gender,
                 randomPassport, randomHuman, randomWorkPlace);
         }
-
-        /// <summary>
-        /// Проверка пола супруга.
-        /// </summary>
-        /// <param name="human">Экземпляр класса Adult.</param>
-        /// <exception cref="ArgumentException">Пол супругов не
-        /// должен быть одинаковым.</exception>
-        private void CheckeGender(Adult human)
-        {
-            if (human != null && human.Gender != Gender)
-            {
-                throw new ArgumentException
-                    ($"Пол супруга должен быть другим");
-            }
-        }
-
 
         /// <summary>
         /// Преобразует значения полей имени и фамилии
