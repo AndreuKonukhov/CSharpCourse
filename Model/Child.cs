@@ -22,7 +22,7 @@ namespace Model
         private string _school;
 
         /// <summary>
-        /// Maximum age of a child.
+        /// Наибольший возраст ребенка.
         /// </summary>
         private const int MaxAgeChild = 16;
 
