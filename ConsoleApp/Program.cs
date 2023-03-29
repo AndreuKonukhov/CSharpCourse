@@ -1,4 +1,4 @@
-﻿using Model;
+using Model;
 using System;
 
 namespace Model
@@ -35,6 +35,7 @@ namespace Model
             Console.Write("Тип четвертого человека из списка: ");
             var person = listPeople.FindPersonByIndex(3);
 
+            //TODO: переделать
             Console.Write(person.GetType());
             _ = Console.ReadKey();
         }

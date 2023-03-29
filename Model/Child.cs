@@ -21,6 +21,7 @@ namespace Model
         /// </summary>
         private string _school;
 
+        //TODO: rename
         /// <summary>
         /// Наибольший возраст ребенка.
         /// </summary>
@@ -194,7 +195,7 @@ namespace Model
             var schoolRandom = random.Next(1, 3);
             string? randomSchool = schoolRandom == 1
                 ? schools[random.Next(schools.Length)]
-            : null;
+                : null;
 
             return new Child(randomName, randomSurname, randomAge,
                 randomGender, randomFather, randomMother, randomSchool);

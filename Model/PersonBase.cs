@@ -47,6 +47,7 @@ namespace Model
             get => _name;
             set
             {
+                //TODO: 
                 _ = DefinitionLanguage(value);
                 _name = ChangeRegister(value);
 
@@ -70,6 +71,7 @@ namespace Model
             get => _surname;
             set
             {
+                //TODO: 
                 _ = DefinitionLanguage(value);
                 _surname = ChangeRegister(value);
 

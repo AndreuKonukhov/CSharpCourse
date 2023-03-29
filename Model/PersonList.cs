@@ -57,7 +57,6 @@ namespace Model
             return listOfIndexes;
         }
 
-        //TODO: XML
         /// <summary>
         /// Метод, который удаляет человека из списка по индексу
         /// </summary>
