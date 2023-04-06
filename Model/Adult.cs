@@ -21,7 +21,7 @@ namespace Model
         /// </summary>
         private string _placeWork;
 
-        //TODO: rename
+        //TODO: rename (выполнено)
         /// <summary>
         /// Минимальный возраст взрослого человека.
         /// </summary>

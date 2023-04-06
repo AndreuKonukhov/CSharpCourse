@@ -48,12 +48,13 @@ namespace Model
             set
             {
                 //TODO: (выполнено)
-                _ = GetLanguage(value);
-                _name = ChangeRegister(value);
+                ChekUnknowLanguage(value);
+                var tmpName = ChangeRegister(value);
 
-                if (_name != null)
+                if (tmpName != null)
                 {
                     CheckToLanguage();
+                    _name = tmpName;
                 }
                 else
                 {
@@ -71,13 +72,13 @@ namespace Model
             get => _surname;
             set
             {
-                //TODO: 
-                _ = GetLanguage(value);
-                _surname = ChangeRegister(value);
-
-                if (_surname != null)
+                //TODO: (выполнено)
+                ChekUnknowLanguage(value);
+                var tmpSurname = ChangeRegister(value);
+                if (tmpSurname != null)
                 {
                     CheckToLanguage();
+                    _surname = tmpSurname;
                 }
             }
         }
@@ -152,11 +153,8 @@ namespace Model
                 {
                     return Languages.Ru;
                 }
-                else
-                {
-                    return Languages.Unknown;
-                }
             }
+            return Languages.Unknown;
         }
 
         private void ChekUnknowLanguage(string tmpStr)
@@ -171,7 +169,8 @@ namespace Model
         /// <summary>
         /// Проверка имени и фамилии на одинаковый язык
         /// </summary>
-        /// <exception cref="FormatException"></exception>
+        /// <exception cref="FormatException">Имя и фамилия
+        /// должны быть на одинаковом языке</exception>
         private void CheckToLanguage()
         {
             if (!string.IsNullOrEmpty(Name)
@@ -213,15 +212,14 @@ namespace Model
 
 
         /// <summary>
-        /// Get the information about a person.
+        /// Метод, формирует информацию о человеке.
         /// </summary>
-        /// <returns></returns>
         public abstract string GetInfo();
 
         /// <summary>
-        /// Check person's age.
+        /// Проверка возраста человека.
         /// </summary>
-        /// <param name="age">Person's age.</param>
+        /// <param name="age">Возраст человека.</param>
         protected abstract void CheckAge(int age);
     }
 }
