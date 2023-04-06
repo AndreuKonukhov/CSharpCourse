@@ -47,8 +47,8 @@ namespace Model
             get => _name;
             set
             {
-                //TODO: 
-                _ = DefinitionLanguage(value);
+                //TODO: (выполнено)
+                _ = GetLanguage(value);
                 _name = ChangeRegister(value);
 
                 if (_name != null)
@@ -72,7 +72,7 @@ namespace Model
             set
             {
                 //TODO: 
-                _ = DefinitionLanguage(value);
+                _ = GetLanguage(value);
                 _surname = ChangeRegister(value);
 
                 if (_surname != null)
@@ -133,33 +133,39 @@ namespace Model
         /// <summary>
         /// Метод, проверяющий строку на язык.
         /// </summary>
-        /// <param name="str">Строка.</param>
+        /// <param name="tmpsStr">Строка.</param>
         /// <returns>Язык передаваемой строки.</returns>
-        private static Languages DefinitionLanguage(string str)
+        private static Languages GetLanguage(string tmpsStr)
         {
             var ruLanguage = new Regex
                 (@"^[A-z]+(-)?[A-z]*$");
             var engLanguage = new Regex
                 (@"^[А-я]+(-)?[А-я]*$");
 
-            if (string.IsNullOrEmpty(str) == false)
+            if (string.IsNullOrEmpty(tmpsStr) == false)
             {
-                if (engLanguage.IsMatch(str))
+                if (engLanguage.IsMatch(tmpsStr))
                 {
                     return Languages.Eng;
                 }
-                else if (ruLanguage.IsMatch(str))
+                else if (ruLanguage.IsMatch(tmpsStr))
                 {
                     return Languages.Ru;
                 }
                 else
                 {
-                    throw new ArgumentException("Некоректный ввод. " +
-                        "Пожалуйста, используйте только" +
-                        " символы одного языка.");
+                    return Languages.Unknown;
                 }
             }
-            return Languages.Unknown;
+        }
+
+        private void ChekUnknowLanguage(string tmpStr)
+        {
+            if (GetLanguage(tmpStr) == Languages.Unknown)
+            {
+                throw new ArgumentException("Некоректный ввод. Пожалуйста," +
+                                " используйте только символы одного языка.");
+            }
         }
 
         /// <summary>
@@ -171,8 +177,8 @@ namespace Model
             if (!string.IsNullOrEmpty(Name)
                 && !string.IsNullOrEmpty(Surname))
             {
-                var nameLanguage = DefinitionLanguage(Name);
-                var surnameLanguage = DefinitionLanguage(Surname);
+                var nameLanguage = GetLanguage(Name);
+                var surnameLanguage = GetLanguage(Surname);
 
                 if (nameLanguage != surnameLanguage)
                 {

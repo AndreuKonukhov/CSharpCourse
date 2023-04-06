@@ -25,7 +25,7 @@ namespace Model
         /// <summary>
         /// Минимальный возраст взрослого человека.
         /// </summary>
-        private const int MinAgeAdult = 18;
+        private const int MinAge = 18;
 
         /// <summary>
         /// Ввод паспортных данных.
@@ -162,7 +162,7 @@ namespace Model
 
             var randomSurname = surnames[random.Next(surnames.Length)];
 
-            var randomAge = random.Next(MinAgeAdult, MaxAge);
+            var randomAge = random.Next(MinAge, MaxAge);
 
             string randomSeriesPassport = "";
             for (int i = 0; i < 4; i++)
@@ -222,11 +222,30 @@ namespace Model
         /// находится в определнных пределах.</exception>
         protected override void CheckAge(int age)
         {
-            if (age is < MinAgeAdult or > MaxAge)
+            if (age is < MinAge or > MaxAge)
             {
                 throw new IndexOutOfRangeException($"Возраст должен" +
-                    $" быть в диапазоне ({MinAgeAdult}...{MaxAge}).");
+                    $" быть в диапазоне ({MinAge}...{MaxAge}).");
             }
         }
+
+        /// <summary>
+        /// Метод назначает ранг мстителю
+        /// </summary>
+        /// <returns>Информация о ранге мстителя.</returns>
+        public string GetRank()
+        {
+            var rnd = new Random();
+
+            string[] ranks =
+            {
+                "SS", "S+", "A+","A","B","F"
+            };
+
+            var chosenRank = ranks[rnd.Next(ranks.Length)];
+
+            return $"Ранг мстителя - {chosenRank}";
+        }
+
     }
 }

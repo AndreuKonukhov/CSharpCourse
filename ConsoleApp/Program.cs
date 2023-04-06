@@ -1,6 +1,3 @@
-using Model;
-using System;
-
 namespace Model
 {
     /// <summary>
@@ -32,12 +29,21 @@ namespace Model
 
             _ = Console.ReadKey();
 
-            Console.Write("Тип четвертого человека из списка: ");
+            //TODO: переделать (выполнено)
+            Console.Write("Дополнительная информация о 4 человеке: ");
             var person = listPeople.FindPersonByIndex(3);
 
-            //TODO: переделать
-            Console.Write(person.GetType());
-            _ = Console.ReadKey();
+            switch (person)
+            {
+                case Adult personAdult:
+                    Console.WriteLine(personAdult.GetRank());
+                    break;
+                case Child personChild:
+                    Console.WriteLine(personChild.GetGrade());
+                    break;
+                default:
+                    break;
+            }
         }
 
         /// <summary>

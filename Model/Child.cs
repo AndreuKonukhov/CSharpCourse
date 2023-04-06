@@ -21,11 +21,11 @@ namespace Model
         /// </summary>
         private string _school;
 
-        //TODO: rename
+        //TODO: rename (выполнено)
         /// <summary>
         /// Наибольший возраст ребенка.
         /// </summary>
-        private const int MaxAgeChild = 16;
+        private const int MaxAge = 16;
 
         /// <summary>
         /// Ввод информации о отце ребенка
@@ -185,7 +185,7 @@ namespace Model
 
             var randomSurname = surnames[random.Next(surnames.Length)];
 
-            var randomAge = random.Next(MinAge, MaxAgeChild);
+            var randomAge = random.Next(MinAge, MaxAge);
 
             Adult randomFather = GetRandomParent(1);
 
@@ -241,12 +241,31 @@ namespace Model
         /// в допустимый диапазон.</exception>
         protected override void CheckAge(int age)
         {
-            if (age is < MinAge or > MaxAgeChild)
+            if (age is < MinAge or > MaxAge)
             {
                 throw new IndexOutOfRangeException($"Возраст ребенка" +
                     $" должен находится в диапазоне " +
-                    $"[{MinAge}...{MaxAgeChild}].");
+                    $"[{MinAge}...{MaxAge}].");
             }
         }
+
+        /// <summary>
+        /// Метод, который показывает успеваемость ребенка.
+        /// </summary>
+        /// <returns>Выбранная оценка.</returns>
+        public string GetGrade()
+        {
+            var rnd = new Random();
+
+            string[] grades =
+            {
+                "A", "B", "C"
+            };
+
+            var preferredHouse = grades[rnd.Next(grades.Length)];
+
+            return $"Успеваемость ребенка: {preferredHouse}";
+        }
+
     }
 }
