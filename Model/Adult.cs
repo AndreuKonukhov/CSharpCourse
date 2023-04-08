@@ -12,9 +12,9 @@ namespace Model
         private string _passportInfo;
 
         /// <summary>
-        /// Семейный статус человека.
+        /// Партнер.
         /// </summary>
-        private Adult _familyStatus;
+        private Adult _spouse;
 
         /// <summary>
         /// Место работы человека.
@@ -48,10 +48,10 @@ namespace Model
         /// <summary>
         /// Ввод семейного статуса человека.
         /// </summary>
-        public Adult FamilyStatus
+        public Adult Spouse
         {
-            get => _familyStatus;
-            set => _familyStatus = value;
+            get => _spouse;
+            set => _spouse = value;
 
         }
 
@@ -71,11 +71,11 @@ namespace Model
         {
             PassportInfo = passportInfo;
             PlaceWork = placeWork;
-            FamilyStatus = familyStatus;
+            Spouse = familyStatus;
         }
 
         /// <summary>
-        /// Конструктор поумолчанию.
+        /// Конструктор по умолчанию.
         /// </summary>
         public Adult() : this("Unknown", "Unknown", 19,
             Gender.Male, "2247 876589", null, null)
@@ -90,18 +90,18 @@ namespace Model
             string familyStatusInfo = "Холост";
             string workInfo = "Не имеет работы";
 
-            if (Gender.Equals(Gender.Male) && FamilyStatus != null)
+            if (Gender.Equals(Gender.Male) && Spouse != null)
             {
                 familyStatusInfo = $"Женат на " +
-                    $"{FamilyStatus.GetNameSurname()}";
+                    $"{Spouse.GetNameSurname()}";
             }
 
             if (Gender.Equals(Gender.Female))
             {
-                familyStatusInfo = FamilyStatus == null
+                familyStatusInfo = Spouse == null
                     ? $"Не замужем"
                     : $"Замужем за " +
-                    $"{FamilyStatus.GetNameSurname()}";
+                    $"{Spouse.GetNameSurname()}";
             }
 
             if (!string.IsNullOrEmpty(PlaceWork))
@@ -148,13 +148,13 @@ namespace Model
 
             var random = new Random();
 
-            if (gender == Gender.Unknown)
+            if (gender is Gender.Unknown)
             {
-                var tmpNumber = random.Next(1, 3);
-                gender = tmpNumber == 1
-                    ? Gender.Male
+                gender = random.Next(1, 100) > 50
+                    ? Gender.Female
                     : Gender.Female;
             }
+
 
             string randomName = gender == Gender.Male
                 ? maleNames[random.Next(maleNames.Length)]
@@ -182,6 +182,7 @@ namespace Model
             var statusFamily = random.Next(1, 3);
             if (statusFamily == 1)
             {
+                // Можно вызвать тот же метод GetRandomPerson
                 randomHuman = new Adult();
 
                 randomHuman.Gender = gender == Gender.Female
@@ -202,16 +203,6 @@ namespace Model
 
             return new Adult(randomName, randomSurname, randomAge, gender,
                 randomPassport, randomHuman, randomWorkPlace);
-        }
-
-        /// <summary>
-        /// Преобразует значения полей имени и фамилии
-        /// в строковый формат.
-        /// </summary>
-        /// <returns>Информация о человеке.</returns>
-        public string GetInfoPerson()
-        {
-            return $"{Name} {Surname}; Возраст - {Age}; Пол - {Gender}";
         }
 
         /// <summary>
@@ -239,7 +230,7 @@ namespace Model
 
             string[] ranks =
             {
-                "SS", "S+", "A+","A","B","F"
+                "SS", "S+", "A+", "A", "B", "F"
             };
 
             var chosenRank = ranks[rnd.Next(ranks.Length)];

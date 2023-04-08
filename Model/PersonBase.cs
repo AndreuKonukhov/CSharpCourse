@@ -48,7 +48,7 @@ namespace Model
             set
             {
                 //TODO: (выполнено)
-                ChekUnknowLanguage(value);
+                CheckUnknownLanguage(value);
                 var tmpName = ChangeRegister(value);
 
                 if (tmpName != null)
@@ -73,7 +73,7 @@ namespace Model
             set
             {
                 //TODO: (выполнено)
-                ChekUnknowLanguage(value);
+                CheckUnknownLanguage(value);
                 var tmpSurname = ChangeRegister(value);
                 if (tmpSurname != null)
                 {
@@ -143,13 +143,13 @@ namespace Model
             var engLanguage = new Regex
                 (@"^[А-я]+(-)?[А-я]*$");
 
-            if (string.IsNullOrEmpty(tmpsStr) == false)
+            if (!string.IsNullOrEmpty(tmpsStr))
             {
                 if (engLanguage.IsMatch(tmpsStr))
                 {
                     return Languages.Eng;
                 }
-                else if (ruLanguage.IsMatch(tmpsStr))
+                if (ruLanguage.IsMatch(tmpsStr))
                 {
                     return Languages.Ru;
                 }
@@ -157,7 +157,12 @@ namespace Model
             return Languages.Unknown;
         }
 
-        private void ChekUnknowLanguage(string tmpStr)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tmpStr"></param>
+        /// <exception cref="ArgumentException"></exception>
+        private void CheckUnknownLanguage(string tmpStr)
         {
             if (GetLanguage(tmpStr) == Languages.Unknown)
             {

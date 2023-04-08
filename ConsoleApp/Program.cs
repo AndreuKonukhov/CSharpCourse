@@ -1,3 +1,5 @@
+
+
 namespace Model
 {
     /// <summary>
@@ -53,13 +55,9 @@ namespace Model
         /// <param name="personList">Экземпляр класса PersonList.</param>
         private static void PrintList(PersonList personList)
         {
-            if (personList == null)
-            {
-                throw new NullReferenceException("Пустой список людей");
-            }
-
             if (personList.CountPersons != 0)
             {
+                // foreach
                 for (int i = 0; i < personList.CountPersons; i++)
                 {
                     var tmpPerson = personList.FindPersonByIndex(i);

@@ -35,7 +35,7 @@ namespace Model
             get => _father;
             set
             {
-                CheckParentGender(value, Gender.Female);
+                CheckParentGender(value, Gender.Male);
                 _father = value;
             }
         }
@@ -48,7 +48,7 @@ namespace Model
             get => _mother;
             set
             {
-                CheckParentGender(value, Gender.Male);
+                CheckParentGender(value, Gender.Female);
                 _mother = value;
             }
         }
@@ -101,7 +101,8 @@ namespace Model
         private static void CheckParentGender
             (Adult parent, Gender gender)
         {
-            if (parent != null && parent.Gender == gender)
+            // На null нужно проверять отдельно
+            if (parent != null && parent.Gender != gender)
             {
                 throw new ArgumentException
                     ("Parent gender must be another");
@@ -109,27 +110,23 @@ namespace Model
         }
 
         /// <summary>
-        /// Конвертация полей класса Chuld в строковый формат.
+        /// Конвертация полей класса Child в строковый формат.
         /// </summary>
         /// <returns>Информация о ребенке.</returns>
         public override string GetInfo()
         {
-            var fatherStatus = "Информации об отце нет";
-            var motherStatus = "Информации о матери нет";
+            var fatherStatus = Father != null
+                ? Father.GetNameSurname()
+                : "Информации об отце нет";
+            var motherStatus = Mother != null
+                ? Mother.GetNameSurname()
+                : "Информации о матери нет";
 
-            if (Father != null)
-            {
-                fatherStatus = Father.GetNameSurname();
-            }
-            if (Mother != null)
-            {
-                motherStatus = Mother.GetNameSurname();
-            }
-
+            // Тернарные выражения
             var schoolStatus = "Не обучается";
             if (!string.IsNullOrEmpty(School))
             {
-                schoolStatus = $"Учиться в ({School})";
+                schoolStatus = $"Учится в ({School})";
             }
 
             return $"{PrintPerson()};\n" +
@@ -143,8 +140,9 @@ namespace Model
         /// </summary>
         /// <returns>Экземпляр класса Adult.</returns>
         public static Child GetRandomPerson
-            (Gender randomGender = Gender.Unknown)
+            (Gender randomGender = Gender.Male)
         {
+            // Можно вынести в общий метод
             string[] maleNames =
             {
                 "Tony", "Thor", "Bruce", "Steven", "Clinton"
@@ -171,12 +169,9 @@ namespace Model
 
             var random = new Random();
 
-            if (randomGender == Gender.Unknown)
+            if (random.Next(1, 3) > 1)
             {
-                var tmpNumber = random.Next(1, 3);
-                randomGender = tmpNumber == 1
-                    ? Gender.Male
-                    : Gender.Female;
+                randomGender = Gender.Female;
             }
 
             string randomName = randomGender == Gender.Male
@@ -187,9 +182,9 @@ namespace Model
 
             var randomAge = random.Next(MinAge, MaxAge);
 
-            Adult randomFather = GetRandomParent(1);
+            Adult randomFather = GetRandomParent(Gender.Male);
 
-            Adult randomMother = GetRandomParent(2);
+            Adult randomMother = GetRandomParent(Gender.Female);
 
 
             var schoolRandom = random.Next(1, 3);
@@ -209,28 +204,11 @@ namespace Model
         /// <returns>Объект класса Adult.</returns>
         /// <exception cref="ArgumentException">
         /// Ожидается ввод цифры 1 или 2.</exception>
-        public static Adult GetRandomParent(int a)
+        public static Adult GetRandomParent(Gender gender)
         {
             var random = new Random();
             var parentStatus = random.Next(1, 3);
-            if (parentStatus == 1)
-            {
-                return null;
-            }
-            else
-            {
-                switch (a)
-                {
-                    case 1:
-                        return Adult.GetRandomPerson(Gender.Male);
-                    case 2:
-                        return Adult.GetRandomPerson(Gender.Female);
-                    default:
-                        throw new ArgumentException
-                            ("Необходимо ввести число 1 или 2");
-                }
-            }
-
+            return parentStatus == 1 ? null : Adult.GetRandomPerson(gender);
         }
 
         /// <summary>
