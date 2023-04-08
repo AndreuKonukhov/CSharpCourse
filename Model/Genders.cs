@@ -9,7 +9,8 @@ namespace Model
         /// Мужчина.
         /// </summary>
         Male,
-
+         
+        # todo: test
         /// <summary>
         /// Женщина.
         /// </summary>
