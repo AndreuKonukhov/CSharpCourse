@@ -6,33 +6,33 @@ namespace Model
     public abstract class EditionBase
     {
         /// <summary>
-        /// Имя издания.
+        /// Наименование издания.
         /// </summary>
         private string _name;
 
         /// <summary>
-        /// Место публикации издания.
+        /// Место публикации.
         /// </summary>
         private string _place;
 
         /// <summary>
-        /// Год публикации издания.
+        /// Год публикации.
         /// </summary>
         private int _year;
 
         /// <summary>
-        /// Кол-во страниц в издении.
+        /// Кол-во страниц в издании.
         /// </summary>
         private int _pageCount;
 
         /// <summary>
-        /// Минимальный год публикации издания
+        /// Минимальный год публикации.
         /// </summary>
         protected const int minYear = 1;
 
 
         /// <summary>
-        /// Имя издания.
+        /// Наименование издания.
         /// </summary>
         public string Name
         {

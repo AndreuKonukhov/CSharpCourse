@@ -73,7 +73,7 @@ namespace Model
         { }
 
         /// <summary>
-        /// Метод, возращает информацию о книге
+        /// Метод, возращает информацию о книге.
         /// </summary>
         public override string GetInfo()
         {

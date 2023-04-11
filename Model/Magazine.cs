@@ -3,10 +3,10 @@ namespace Model
     /// <summary>
     /// Класс описывает журнал
     /// </summary>
-    public class Magazine: EditionBase
+    public class Magazine : EditionBase
     {
         /// <summary>
-        /// Организация публикуемая журнал.
+        /// Публикуемая организация.
         /// </summary>
         private string _organization;
 
@@ -21,9 +21,9 @@ namespace Model
 		private string _editor;
 
         /// <summary>
-        /// Организация публикуемая журнал.
+        /// Публикуемая организация.
         /// </summary>
-        public string Founder
+        public string Organization
         {
             get => _organization;
             set => _organization = value;
@@ -37,7 +37,6 @@ namespace Model
             get => _type;
             set
             {
-
                 _type = value;
             }
         }
@@ -50,45 +49,45 @@ namespace Model
             get => _editor;
             set
             {
-                CheckEmpty(value);
-                CheckLanguage(value);
-                _mainEditor = value;
+                _editor = value;
             }
         }
 
         /// <summary>
 		/// Конструктор класса
 		/// </summary>
-		/// <param name="name">name</param>
-		/// <param name="type">type</param>
-		/// <param name="founder">founder</param>
-		/// <param name="place">Место place</param>
-		/// <param name="mainEditor">mainEditor</param>
-		/// <param name="year">year</param>
-		/// <param name="pageCount">count of pages</param>
-		public Magazine(string name, string type, string founder, string place,
-            string mainEditor, int year, int pageCount)
+		/// <param name="name">Наименование.</param>
+		/// <param name="type">Тип журнала.</param>
+		/// <param name="organization">Публикуемая организация.</param>
+		/// <param name="place">Место публикации.</param>
+		/// <param name="editor">Редактор.</param>
+		/// <param name="year">Год публикации.</param>
+		/// <param name="pageCount">Кол-во страниц.</param>
+		public Magazine(string name, string type, string organization, string place,
+            string editor, int year, int pageCount)
             : base(name, place, year, pageCount)
         {
             Type = type;
-            Founder = founder;
-            Editor = mainEditor;
+            Organization = organization;
+            Editor = editor;
         }
 
         /// <summary>
-        /// Default constructor
+        /// Конструктор по умолчанию
         /// </summary>
         protected Magazine()
         {
         }
 
         /// <summary>
-        /// Information
+        /// Метод, возращает информацию о журнале.
         /// </summary>
-        public override string Info =>
-            $"{Name}: {Type} / учредитель {Founder}; ред. {Editor}. - {Place}" +
+        public override string GetInfo()
+        {
+            return $"{Name}: {Type} / учредитель {Organization}; ред. {Editor}. - {Place}" +
             $", {Year}. - {PageCount} с.";
+        }
+
     }
 }
-    }
-}
+
