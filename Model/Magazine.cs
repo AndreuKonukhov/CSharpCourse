@@ -30,7 +30,7 @@ namespace Model
         }
 
         /// <summary>
-        /// Тип журнала
+        /// Тип журнала.
         /// </summary>
         public string Type
         {
@@ -42,7 +42,7 @@ namespace Model
         }
 
         /// <summary>
-        /// Редактор журнала
+        /// Редактор журнала.
         /// </summary>
         public string Editor
         {
@@ -73,7 +73,7 @@ namespace Model
         }
 
         /// <summary>
-        /// Конструктор по умолчанию
+        /// Конструктор по умолчанию.
         /// </summary>
         protected Magazine()
         {

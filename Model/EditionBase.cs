@@ -26,7 +26,7 @@ namespace Model
         private int _pageCount;
 
         /// <summary>
-        /// Минимальный год публикации.
+        /// Минимальный год публикации издания.
         /// </summary>
         protected const int minYear = 1;
 

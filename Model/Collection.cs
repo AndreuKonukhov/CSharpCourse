@@ -36,14 +36,14 @@ namespace Model
         }
 
         /// <summary>
-        /// Constructor
+        /// Конструктор класса.
         /// </summary>
         /// <param name="name">Наименование.</param>
-        /// <param name="mainEditor">Главный редактор</param>
-        /// <param name="place">Место публикации</param>
+        /// <param name="mainEditor">Главный редактор.</param>
+        /// <param name="place">Место публикации.</param>
         /// <param name="publisher">Издатель сборника.</param>
-        /// <param name="year">Год издания</param>
-        /// <param name="pageCount">Кол-во страниц</param>
+        /// <param name="year">Год издания.</param>
+        /// <param name="pageCount">Кол-во страниц.</param>
         public Collection(string name, string mainEditor, string place,
             string publisher, int year, int pageCount)
             : base(name, place, year, pageCount)
@@ -53,7 +53,7 @@ namespace Model
         }
 
         /// <summary>
-        /// Конструктор по умолчанию
+        /// Конструктор по умолчанию.
         /// </summary>
         public Collection()
         {
