@@ -1,7 +1,7 @@
 namespace Model
 {
     /// <summary>
-    /// Collection
+    /// Класс описывает сборник.
     /// </summary>
     public class Collection : EditionBase
     {

@@ -81,7 +81,7 @@ namespace Model
         }
 
         /// <summary>
-        /// Конструктор
+        /// Конструктор класса.
         /// </summary>
         protected EditionBase(string name, string place, int year, int pageCount)
         {
@@ -93,13 +93,13 @@ namespace Model
 
 
         /// <summary>
-        /// Конструктор по умолчания
+        /// Конструктор по умолчания.
         /// </summary>
         protected EditionBase()
         { }
 
         /// <summary>
-        /// Проверка года публикации издания
+        /// Проверка года публикации издания.
         /// </summary>
         /// <param name="value">Год публикации.</param>
         /// <exception cref="ArgumentException">Неверный диапазон года
