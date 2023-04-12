@@ -16,12 +16,12 @@ namespace Model
         private string _publisher;
 
         /// <summary>
-        /// Тип книги
+        /// Тип книги.
         /// </summary>
         private string _type;
 
         /// <summary>
-        /// Главный
+        /// Автор.
         /// </summary>
         public string Author
         {
@@ -50,7 +50,7 @@ namespace Model
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="mainAuthor">Автор книги.</param>
+        /// <param name="author">Автор книги.</param>
         /// <param name="name">Назименование книги.</param>
         /// <param name="type">Тип книги.</param>
         /// <param name="place">Место публикации Книги.</param>
@@ -67,7 +67,7 @@ namespace Model
         }
 
         /// <summary>
-        /// Конструктор по умолчанию
+        /// Конструктор по умолчанию.
         /// </summary>
         public Book()
         { }
