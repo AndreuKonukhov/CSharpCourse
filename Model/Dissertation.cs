@@ -47,7 +47,7 @@ namespace Model
             get => _specialization;
             set
             {
-                CheckLanguage(value);
+                CheckEmpty(value);
                 _specialization = value;
             }
         }

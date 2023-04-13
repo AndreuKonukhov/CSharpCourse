@@ -26,7 +26,11 @@ namespace Model
         public string Organization
         {
             get => _organization;
-            set => _organization = value;
+            set
+            {
+                CheckEmpty(value);
+                _organization = value;
+            }
         }
 
         /// <summary>
@@ -37,6 +41,8 @@ namespace Model
             get => _type;
             set
             {
+                CheckEmpty(value);
+                CheckLanguage(value);
                 _type = value;
             }
         }
@@ -49,6 +55,8 @@ namespace Model
             get => _editor;
             set
             {
+                CheckEmpty(value);
+                CheckLanguage(value);
                 _editor = value;
             }
         }

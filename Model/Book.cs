@@ -26,7 +26,12 @@ namespace Model
         public string Author
         {
             get => _author;
-            set => _author = value;
+            set
+            {
+                CheckEmpty(value);
+                CheckLanguage(value);
+                _author = value;
+            }
         }
 
         /// <summary>
@@ -35,7 +40,11 @@ namespace Model
         public string Publisher
         {
             get => _publisher;
-            set => _publisher = value;
+            set
+            {
+                CheckEmpty(value);
+                _publisher = value;
+            }
         }
 
         /// <summary>
@@ -44,7 +53,11 @@ namespace Model
         public string Type
         {
             get => _type;
-            set => _type = value;
+            set
+            {
+                CheckLanguage(value);
+                _type = value;
+            }
         }
 
         /// <summary>

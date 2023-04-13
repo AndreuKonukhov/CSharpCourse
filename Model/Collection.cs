@@ -8,7 +8,7 @@ namespace Model
         /// <summary>
         /// Наименование конференции.
         /// </summary>
-        private string _mainEditor;
+        private string _nameOfConference;
 
         /// <summary>
         /// Издатель сборника.
@@ -20,10 +20,14 @@ namespace Model
         /// <summary>
         /// Наименование конференции.
         /// </summary>
-        public string MainEditor
+        public string NameOfConference
         {
-            get => _mainEditor;
-            set => _mainEditor = value;
+            get => _nameOfConference;
+            set
+            {
+                CheckEmpty(value);
+                _nameOfConference = value;
+            }
         }
 
         /// <summary>
@@ -32,23 +36,27 @@ namespace Model
         public string Publisher
         {
             get => _publisher;
-            set => _publisher = value;
+            set
+            {
+                CheckEmpty(value);
+                _publisher = value;
+            }
         }
 
         /// <summary>
         /// Конструктор класса.
         /// </summary>
-        /// <param name="name">Наименование.</param>
-        /// <param name="mainEditor">Главный редактор.</param>
+        /// <param name="name">Наименование сборника.</param>
+        /// <param name="nameOfConference">Наименование конференции.</param>
         /// <param name="place">Место публикации.</param>
         /// <param name="publisher">Издатель сборника.</param>
         /// <param name="year">Год издания.</param>
         /// <param name="pageCount">Кол-во страниц.</param>
-        public Collection(string name, string mainEditor, string place,
+        public Collection(string name, string nameOfConference, string place,
             string publisher, int year, int pageCount)
             : base(name, place, year, pageCount)
         {
-            MainEditor = mainEditor;
+            NameOfConference = nameOfConference;
             Publisher = publisher;
         }
 
@@ -64,7 +72,7 @@ namespace Model
         /// </summary>
         public override string GetInfo()
         {
-            return $"{Name}: {MainEditor}. - {Place}: {Publisher}," +
+            return $"{Name}: {NameOfConference}. - {Place}: {Publisher}," +
             $" {Year}. - {PageCount} с.";
         }
 
