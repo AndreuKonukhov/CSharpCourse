@@ -1,17 +1,32 @@
 namespace Model
 {
     /// <summary>
-    /// Thesis
+    /// Класс, описывающий диссертацию
     /// </summary>
     public class Dissertation : EditionBase
     {
         /// <summary>
-        /// Главный автор
+        /// Автор.
         /// </summary>
         private string _author;
 
         /// <summary>
-        /// Главный автор
+        /// Специализация исследования.
+        /// </summary>
+        private string _specialization;
+
+        /// <summary>
+        /// Университет.
+        /// </summary>
+        private string _university;
+
+        /// <summary>
+        /// Тип.
+        /// </summary>
+        private string _type;
+
+        /// <summary>
+        /// Автор.
         /// </summary>
         public string Author
         {
@@ -25,12 +40,7 @@ namespace Model
         }
 
         /// <summary>
-        /// Specialization
-        /// </summary>
-        private string _specialization;
-
-        /// <summary>
-        /// Specialization
+        /// Специализация исследования.
         /// </summary>
         public string Specialization
         {
@@ -39,17 +49,7 @@ namespace Model
         }
 
         /// <summary>
-        /// University
-        /// </summary>
-        private string _university;
-
-        /// <summary>
-        /// Type
-        /// </summary>
-        private string _type;
-
-        /// <summary>
-        /// Type
+        /// Тип.
         /// </summary>
         public string Type
         {
@@ -64,7 +64,7 @@ namespace Model
         }
 
         /// <summary>
-        /// University
+        /// Университет.
         /// </summary>
         public string University
         {
@@ -75,14 +75,14 @@ namespace Model
         /// <summary>
         /// Конструктор класса
         /// </summary>
-        /// <param name="author">Автор</param>
-        /// <param name="name">Название</param>
-        /// <param name="type">Тип</param>
-        /// <param name="specialization">Специализация исследования</param>
-        /// <param name="place">Место издания</param>
-        /// <param name="university">Университет</param>
-        /// <param name="year">Год издания</param>
-        /// <param name="pageLimits">Количество страниц</param>
+        /// <param name="author">Автор.</param>
+        /// <param name="name">Название.</param>
+        /// <param name="type">Тип.</param>
+        /// <param name="specialization">Специализация исследования.</param>
+        /// <param name="place">Место издания.</param>
+        /// <param name="university">Университет.</param>
+        /// <param name="year">Год публикации издания.</param>
+        /// <param name="pageLimits">Количество страниц.</param>
         public Dissertation(string author, string name, string type, string specialization, string place,
             string university, int year, int pageCount)
             : base(name, place, year, pageCount)
@@ -94,7 +94,7 @@ namespace Model
         }
 
         /// <summary>
-        /// Конструктор класса для сериализации
+        /// Конструктор по умолчанию
         /// </summary>
         public Dissertation()
         {
@@ -103,13 +103,10 @@ namespace Model
         /// <summary>
         /// Info
         /// </summary>
-        public override string Info
+        public override string GetInfo()
         {
-            get
-            {
-                return $"{Author}. {Name}: {Specialization}: {Type} ; {University}. - {Place}" +
-                $", {Year}. - {PageCount} с.";
-            }
+            return $"{Author}. {Name}: {Specialization}: {Type} ; {University}. - {Place}" +
+            $", {Year}. - {PageCount} с.";
         }
     }
 }

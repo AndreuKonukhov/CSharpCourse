@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 namespace Model
 {
     /// <summary>
@@ -111,6 +113,38 @@ namespace Model
                 throw new ArgumentException($"Значение года публикации" +
                     $"должно быть в диапазоне " +
                     $"[{minYear} - {DateTime.Now.Year}]");
+            }
+        }
+
+        /// <summary>
+        /// Метод, проверяющий на Null и Empty.
+        /// </summary>
+        /// <param name="value">Строка для проверки</param>
+        /// <returns>Если проверка пройдена,
+        /// то возвращается входное значение.</returns>
+        /// <exception cref="ArgumentException">
+        /// Строка не должна быть пустой.</exception>
+        protected void CheckEmpty(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                throw new ArgumentException($"Строка не должна быть пустой!");
+            }
+        }
+
+        /// <summary>
+        /// Метод проверяет значение на язык.
+        /// </summary>
+        /// <param name="value">Строка для проверки</param>
+        /// <returns>Если проверка пройдена,
+        /// то возвращается входное значение.</returns>
+        /// <exception cref="Exception"></exception>
+        protected void CheckLanguage(string value)
+        {
+            var regex = new Regex(@"^([-.,a-zA-Z\s]|[-.,а-яА-Я\s])*$");
+            if (!regex.IsMatch(value))
+            {
+                throw new Exception("There should be only Russian or English characters");
             }
         }
 
