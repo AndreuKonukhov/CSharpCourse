@@ -45,7 +45,11 @@ namespace Model
         public string Specialization
         {
             get => _specialization;
-            set => _specialization = CheckEmpty(value);
+            set
+            {
+                CheckLanguage(value);
+                _specialization = value;
+            }
         }
 
         /// <summary>
@@ -69,7 +73,11 @@ namespace Model
         public string University
         {
             get => _university;
-            set => _university = CheckEmpty(value);
+            set
+            {
+                CheckLanguage(value);
+                _university = value;
+            }
         }
 
         /// <summary>
@@ -82,8 +90,9 @@ namespace Model
         /// <param name="place">Место издания.</param>
         /// <param name="university">Университет.</param>
         /// <param name="year">Год публикации издания.</param>
-        /// <param name="pageLimits">Количество страниц.</param>
-        public Dissertation(string author, string name, string type, string specialization, string place,
+        /// <param name="pageCount">Количество страниц.</param>
+        public Dissertation(string author, string name, string type,
+            string specialization, string place,
             string university, int year, int pageCount)
             : base(name, place, year, pageCount)
         {
@@ -93,6 +102,7 @@ namespace Model
             University = university;
         }
 
+
         /// <summary>
         /// Конструктор по умолчанию
         /// </summary>
@@ -101,7 +111,7 @@ namespace Model
         }
 
         /// <summary>
-        /// Info
+        /// Метод, возращает информацию о диссертации.
         /// </summary>
         public override string GetInfo()
         {
