@@ -90,10 +90,12 @@ namespace Model
         /// <summary>
         /// Метод, возращает информацию о журнале.
         /// </summary>
+        /// <returns>Информация об издании</returns>
         public override string GetInfo()
         {
-            return $"{Name}: {Type} / учредитель {Organization}; ред. {Editor}. - {Place}" +
-            $", {Year}. - {PageCount} с.";
+            return $"{Name}: {Type} / учредитель {Organization}; " +
+                $"ред. {Editor}. - {Place}" +
+                $", {Year}. - {PageCount} с.";
         }
 
     }

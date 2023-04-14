@@ -64,7 +64,7 @@ namespace Model
         /// Конструктор
         /// </summary>
         /// <param name="author">Автор книги.</param>
-        /// <param name="name">Назименование книги.</param>
+        /// <param name="name">Наименование книги.</param>
         /// <param name="type">Тип книги.</param>
         /// <param name="place">Место публикации Книги.</param>
         /// <param name="publisher">Издатель.</param>
@@ -88,11 +88,12 @@ namespace Model
         /// <summary>
         /// Метод, возращает информацию о книге.
         /// </summary>
+        /// <returns>Информация об издании</returns>
         public override string GetInfo()
         {
             string type = string.IsNullOrEmpty(Type)
                 ? ""
-                : ": " + Type;
+                : $": {Type}";
             return $"{Author} {Name}{type}. - {Place}: Изд-во {Publisher}" +
                 $", {Year}. - {PageCount} с.";
         }

@@ -113,10 +113,12 @@ namespace Model
         /// <summary>
         /// Метод, возращает информацию о диссертации.
         /// </summary>
+        /// <returns>Информация об издании</returns>
         public override string GetInfo()
         {
-            return $"{Author}. {Name}: {Specialization}: {Type} ; {University}. - {Place}" +
-            $", {Year}. - {PageCount} с.";
+            return $"{Author}. {Name}: {Specialization}: {Type} ;" +
+                $" {University}. - {Place}" +
+                $", {Year}. - {PageCount} с.";
         }
     }
 }

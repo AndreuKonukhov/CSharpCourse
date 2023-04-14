@@ -128,7 +128,7 @@ namespace Model
         {
             if (string.IsNullOrEmpty(value))
             {
-                throw new ArgumentException($"Строка не должна быть пустой!");
+                throw new ArgumentException("Строка не должна быть пустой!");
             }
         }
 

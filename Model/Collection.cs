@@ -15,8 +15,6 @@ namespace Model
         /// </summary>
         private string _publisher;
 
-
-
         /// <summary>
         /// Наименование конференции.
         /// </summary>
@@ -70,6 +68,7 @@ namespace Model
         /// <summary>
         /// Метод, возращает информацию о журнале.
         /// </summary>
+        /// <returns>Информация об издании</returns>
         public override string GetInfo()
         {
             return $"{Name}: {NameOfConference}. - {Place}: {Publisher}," +
