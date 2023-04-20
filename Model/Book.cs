@@ -55,13 +55,14 @@ namespace Model
             get => _type;
             set
             {
+                CheckEmpty(value);
                 CheckLanguage(value);
                 _type = value;
             }
         }
 
         /// <summary>
-        /// Конструктор
+        /// Конструктор класса
         /// </summary>
         /// <param name="author">Автор книги.</param>
         /// <param name="name">Наименование книги.</param>

@@ -83,7 +83,7 @@ namespace Model
         /// <summary>
         /// Конструктор по умолчанию.
         /// </summary>
-        protected Magazine()
+        public Magazine()
         {
         }
 

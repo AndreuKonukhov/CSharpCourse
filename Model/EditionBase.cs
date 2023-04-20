@@ -30,7 +30,7 @@ namespace Model
         /// <summary>
         /// Минимальный год публикации издания.
         /// </summary>
-        protected const int minYear = 1;
+        protected const int minYear = -1378;
 
 
         /// <summary>
@@ -41,6 +41,7 @@ namespace Model
             get => _name;
             set
             {
+                CheckEmpty(value);
                 _name = value;
             }
         }
@@ -53,6 +54,7 @@ namespace Model
             get => _place;
             set
             {
+                CheckEmpty(value);
                 _place = value;
             }
         }
@@ -110,8 +112,8 @@ namespace Model
         {
             if (value > DateTime.Now.Year || value < minYear)
             {
-                throw new ArgumentException($"Значение года публикации" +
-                    $"должно быть в диапазоне " +
+                throw new ArgumentException($"Значение года публикации " +
+                    $"должно находится в диапазоне " +
                     $"[{minYear} - {DateTime.Now.Year}]");
             }
         }
