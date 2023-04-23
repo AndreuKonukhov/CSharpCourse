@@ -87,7 +87,7 @@ namespace Model
         /// <param name="name">Название.</param>
         /// <param name="type">Тип.</param>
         /// <param name="specialization">Специализация исследования.</param>
-        /// <param name="place">Место издания.</param>
+        /// <param name="place">Место публикации издания.</param>
         /// <param name="university">Университет.</param>
         /// <param name="year">Год публикации издания.</param>
         /// <param name="pageCount">Количество страниц.</param>

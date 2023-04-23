@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Model_View.Properties {
+namespace ModelView.Properties {
     using System;
     
     
