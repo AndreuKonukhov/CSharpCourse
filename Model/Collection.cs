@@ -42,6 +42,17 @@ namespace Model
         }
 
         /// <summary>
+        /// Тип издания.
+        /// </summary>
+        public override string EditionType
+        {
+            get
+            {
+                return "Сборник";
+            }
+        }
+
+        /// <summary>
         /// Конструктор класса.
         /// </summary>
         /// <param name="name">Наименование сборника.</param>
@@ -69,11 +80,9 @@ namespace Model
         /// Метод, возращает информацию о журнале.
         /// </summary>
         /// <returns>Информация об издании</returns>
-        public override string GetInfo()
-        {
-            return $"{Name}: {NameOfConference}. - {Place}: {Publisher}," +
+        public override string GetInfo =>
+            $"{Name}: {NameOfConference}. - {Place}: {Publisher}," +
             $" {Year}. - {PageCount} с.";
-        }
 
     }
 }

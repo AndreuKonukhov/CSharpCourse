@@ -62,6 +62,17 @@ namespace Model
         }
 
         /// <summary>
+        /// Тип издания.
+        /// </summary>
+        public override string EditionType
+        {
+            get
+            {
+                return "Журнал";
+            }
+        }
+
+        /// <summary>
 		/// Конструктор класса
 		/// </summary>
 		/// <param name="name">Наименование.</param>
@@ -91,13 +102,10 @@ namespace Model
         /// Метод, возращает информацию о журнале.
         /// </summary>
         /// <returns>Информация об издании</returns>
-        public override string GetInfo()
-        {
-            return $"{Name}: {Type} / учредитель {Organization}; " +
-                $"ред. {Editor}. - {Place}" +
-                $", {Year}. - {PageCount} с.";
-        }
-
+        public override string GetInfo =>
+            $"{Name}: {Type} / учредитель {Organization}; " +
+            $"ред. {Editor}. - {Place}" +
+            $", {Year}. - {PageCount} с.";
     }
 }
 

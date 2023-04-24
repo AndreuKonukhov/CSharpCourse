@@ -81,6 +81,17 @@ namespace Model
         }
 
         /// <summary>
+        /// Тип издания.
+        /// </summary>
+        public override string EditionType
+        {
+            get
+            {
+                return "Диссертация";
+            }
+        }
+
+        /// <summary>
         /// Конструктор класса
         /// </summary>
         /// <param name="author">Автор.</param>
@@ -114,11 +125,10 @@ namespace Model
         /// Метод, возращает информацию о диссертации.
         /// </summary>
         /// <returns>Информация об издании</returns>
-        public override string GetInfo()
-        {
-            return $"{Author}. {Name}: {Specialization}: {Type} ;" +
-                $" {University}. - {Place}" +
-                $", {Year}. - {PageCount} с.";
-        }
+        public override string GetInfo =>
+            $"{Author}. {Name}: {Specialization}: {Type} ;" +
+            $" {University}. - {Place}" +
+            $", {Year}. - {PageCount} с.";
+
     }
 }

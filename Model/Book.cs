@@ -62,6 +62,17 @@ namespace Model
         }
 
         /// <summary>
+        /// Тип издания.
+        /// </summary>
+        public override string EditionType
+        {
+            get
+            {
+                return "Книга";
+            }
+        }
+
+        /// <summary>
         /// Конструктор класса
         /// </summary>
         /// <param name="author">Автор книги.</param>
@@ -90,13 +101,18 @@ namespace Model
         /// Метод, возращает информацию о книге.
         /// </summary>
         /// <returns>Информация об издании</returns>
-        public override string GetInfo()
+        public override string GetInfo
         {
-            string type = string.IsNullOrEmpty(Type)
-                ? ""
-                : $": {Type}";
-            return $"{Author} {Name}{type}. - {Place}: Изд-во {Publisher}" +
-                $", {Year}. - {PageCount} с.";
+            get
+            {
+                string type = string.IsNullOrEmpty(Type)
+                    ? ""
+                    : $": {Type}";
+                return $"{Author} {Name}{type}. - {Place}" +
+                       $": Изд-во {Publisher}" +
+                    $", {Year}. - {PageCount} с.";
+            }
+
         }
     }
 }
