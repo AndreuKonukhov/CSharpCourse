@@ -117,9 +117,39 @@ namespace ModelView
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            Book book1 = new Book("Филиппова А.Г", "История",
+            Book book = new Book("Филиппова А.Г", "История",
                 "учебное пособие", "Москва", "Юнион", 2011, 126);
-            var eventArgs = new EditionEventArgs(book1);
+            var eventArgs = new EditionEventArgs(book);
+            EditionAdded?.Invoke(this, eventArgs);
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            Collection collection = new Collection(
+                "Инновации", "Международная конференция",
+                "Москва", "Московский Государственный Унверститет",
+                2012, 58);
+            var eventArgs = new EditionEventArgs(collection);
+            EditionAdded?.Invoke(this, eventArgs);
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            Dissertation dissertation = new Dissertation(
+                "Филиппова А.Г", "Название диссертации",
+                "диссертация на соискание ученой степени",
+                "специальность 13.00.01 'Общая педагогика'",
+                "Москва", "Кузбасская государственная педагогическая академия",
+                2000, 255);
+            var eventArgs = new EditionEventArgs(dissertation);
+            EditionAdded?.Invoke(this, eventArgs);
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            Magazine magazine = new Magazine("Вопросы", "Научный журнал",
+                "ООО 'Редация'", "Москва", "А.А. Искендеров", 2011, 518);
+            var eventArgs = new EditionEventArgs(magazine);
             EditionAdded?.Invoke(this, eventArgs);
         }
     }

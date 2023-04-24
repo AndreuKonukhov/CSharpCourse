@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ModelView.Properties {
+namespace Model_View.Properties {
     using System;
     
     
@@ -57,6 +57,16 @@ namespace ModelView.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap qwerty {
+            get {
+                object obj = ResourceManager.GetObject("qwerty", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }
