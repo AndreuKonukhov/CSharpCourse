@@ -14,7 +14,8 @@ namespace ModelView
         public MainForm()
         {
             InitializeComponent();
-            EditionDataGridView.DataSource = _editionList;
+            var source = new BindingSource(_editionList, null);
+            EditionDataGridView.DataSource = source;
         }
 
         /// <summary>
@@ -25,16 +26,46 @@ namespace ModelView
         private void AddButton_Click(object sender, EventArgs e)
         {
 
-            var newObject = new InputForm(_editionList);
+            var newInputForm = new InputForm();
 
-            newObject.Show();
+            newInputForm.Show();
 
-            newObject.Closed += (_, _) =>
+            newInputForm.EditionAdded += (_, args) =>
+            {
+                _editionList.Add(args.Edition);
+
+                EditionDataGridView.DataSource = _editionList;
+            };
+
+            newInputForm.Closed += (_, _) =>
             {
                 AddButton.Enabled = true;
             };
 
             AddButton.Enabled = false;
+        }
+
+        private void RemoveButton_Click(object sender, EventArgs e)
+        {
+            if (EditionDataGridView.SelectedCells.Count != 0)
+            {
+                // TODO:+ refactor
+                foreach (DataGridViewRow row in
+                    EditionDataGridView.SelectedRows)
+                {
+                    _editionList.RemoveAt(row.Index);
+                }
+            }
+        }
+
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Вы действительно хотите очистить " +
+                "список всех изданий?", "Очистка всех изданий",
+                 MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                _editionList.Clear();
+            }
         }
     }
 }

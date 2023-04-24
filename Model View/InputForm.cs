@@ -1,5 +1,3 @@
-using Model;
-using System.ComponentModel;
 
 namespace ModelView
 {
@@ -13,41 +11,35 @@ namespace ModelView
             UserControl> _comboBoxToUserControl;
 
         /// <summary>
-        /// Dictionary of motion instances.
+        /// Handler to event of adding motion.
         /// </summary>
-        private readonly Dictionary<string,
-            Func<EditionBase>> _comboBoxToEdition;
+        private EventHandler<EditionEventArgs> _editionAdded;
 
         /// <summary>
-        /// Field for link to MainForm _motionList object.
+        /// EventHandler _motionAdded field's property.
         /// </summary>
-        private BindingList<EditionBase> _editionListMain;
+        public EventHandler<EditionEventArgs> EditionAdded
+        {
+            get => _editionAdded;
+            set => _editionAdded = value;
+        }
 
-        public InputForm(BindingList<EditionBase> editionList)
+        public InputForm()
         {
             InitializeComponent();
 
-            _editionListMain = editionList;
+            string[] motionTypes = { "Книга", "Сборник",
+                "Диссертация", "Журнал" };
 
             _comboBoxToUserControl = new Dictionary<string, UserControl>()
             {
-                {"Книга", bookUserControl1},
-                {"Сборник", collectionUserControl1},
-                {"Диссертация", dissertationUserControl1},
-                {"Журнал", magazineUserControl1}
+                {motionTypes[0], bookUserControl1},
+                {motionTypes[1], collectionUserControl1},
+                {motionTypes[2], dissertationUserControl1},
+                {motionTypes[3], magazineUserControl1}
             };
 
-            ComboBoxEditionTypes.Items.AddRange(_comboBoxToUserControl.Keys.
-                ToArray());
-
-            _comboBoxToEdition = new Dictionary<string, Func<EditionBase>>()
-            {
-                {"Книга", bookUserControl1.GetEdition},
-                {"Сборник", collectionUserControl1.GetEdition},
-                {"Диссертация", dissertationUserControl1.GetEdition},
-                {"Журнал", magazineUserControl1.GetEdition}
-
-            };
+            ComboBoxEditionTypes.Items.AddRange(motionTypes);
 
             ComboBoxEditionTypes.SelectedIndexChanged +=
                 ComboBoxMotionTypes_SelectedIndexChanged;
@@ -74,51 +66,51 @@ namespace ModelView
                 }
             }
         }
-        private void InputForm_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void OKbutton_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(ComboBoxEditionTypes.Text.ToString()))
+            if (string.IsNullOrEmpty(ComboBoxEditionTypes.Text))
             {
                 Close();
             }
             else
             {
-                foreach (var editionType in _comboBoxToEdition)
+                try
                 {
-                    if (ComboBoxEditionTypes.SelectedItem.ToString() ==
-                        editionType.Key)
+                    var chosenEdition =
+                        ComboBoxEditionTypes.SelectedItem.ToString();
+                    var chosenMotionControl =
+                        _comboBoxToUserControl[chosenEdition];
+                    var eventArgs = new EditionEventArgs
+                        (((EditionBaseUserControl)chosenMotionControl).
+                        GetEdition());
+                    EditionAdded?.Invoke(this, eventArgs);
+                }
+                catch (Exception exception)
+                {
+                    if (exception.GetType() == typeof
+                        (ArgumentOutOfRangeException) ||
+                        exception.GetType() == typeof
+                        (ArgumentException) ||
+                        exception.GetType() == typeof
+                        (Exception))
                     {
-                        try
-                        {
-                            _editionListMain.Add(editionType.Value.
-                                Invoke());
-                        }
-                        catch (Exception exception)
-                        {
-                            if (exception.GetType() == typeof
-                                (ArgumentOutOfRangeException) ||
-                                exception.GetType() == typeof
-                                (ArgumentException) ||
-                                exception.GetType() == typeof
-                                (Exception))
-                            {
-                                _ = MessageBox.Show
-                                    ($"Неверно введены данные.\n" +
-                                    $"Ошибка: {exception.Message}");
-                            }
-                            else
-                            {
-                                throw exception;
-                            }
-                        }
+                        _ = MessageBox.Show
+                            ($"Incorrect input parameters.\n" +
+                            $"Error: {exception.Message}");
+                    }
+                    else
+                    {
+                        throw exception;
                     }
                 }
             }
 
+        }
+
+        private void Cancelbutton_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

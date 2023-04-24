@@ -32,11 +32,12 @@ namespace ModelView
             EditionDataGridView = new DataGridView();
             AddButton = new Button();
             groupBox1 = new GroupBox();
-            button1 = new Button();
+            RemoveButton = new Button();
             menuStrip1 = new MenuStrip();
             loadToolStripMenuItem = new ToolStripMenuItem();
             çàãðóçèòüToolStripMenuItem = new ToolStripMenuItem();
             ñîõðàíèòüToolStripMenuItem = new ToolStripMenuItem();
+            ClearButton = new Button();
             ((System.ComponentModel.ISupportInitialize)EditionDataGridView).BeginInit();
             groupBox1.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -78,31 +79,33 @@ namespace ModelView
             // 
             groupBox1.BackColor = SystemColors.ScrollBar;
             groupBox1.BackgroundImageLayout = ImageLayout.Center;
-            groupBox1.Controls.Add(button1);
+            groupBox1.Controls.Add(ClearButton);
+            groupBox1.Controls.Add(RemoveButton);
             groupBox1.Controls.Add(AddButton);
             groupBox1.Controls.Add(EditionDataGridView);
             groupBox1.Font = new Font("Lucida Handwriting", 9F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox1.Location = new Point(12, 49);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(776, 389);
+            groupBox1.Size = new Size(776, 412);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "Áèáëèîòå÷íûå èçäàíèÿ";
             // 
-            // button1
+            // RemoveButton
             // 
-            button1.BackColor = SystemColors.ScrollBar;
-            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
-            button1.BackgroundImageLayout = ImageLayout.Stretch;
-            button1.Cursor = Cursors.Hand;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Akrobat Light", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.ScrollBar;
-            button1.Location = new Point(70, 46);
-            button1.Name = "button1";
-            button1.Size = new Size(35, 40);
-            button1.TabIndex = 2;
-            button1.UseVisualStyleBackColor = false;
+            RemoveButton.BackColor = SystemColors.ScrollBar;
+            RemoveButton.BackgroundImage = (Image)resources.GetObject("RemoveButton.BackgroundImage");
+            RemoveButton.BackgroundImageLayout = ImageLayout.Stretch;
+            RemoveButton.Cursor = Cursors.Hand;
+            RemoveButton.FlatStyle = FlatStyle.Flat;
+            RemoveButton.Font = new Font("Akrobat Light", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            RemoveButton.ForeColor = SystemColors.ScrollBar;
+            RemoveButton.Location = new Point(70, 46);
+            RemoveButton.Name = "RemoveButton";
+            RemoveButton.Size = new Size(35, 40);
+            RemoveButton.TabIndex = 2;
+            RemoveButton.UseVisualStyleBackColor = false;
+            RemoveButton.Click += RemoveButton_Click;
             // 
             // menuStrip1
             // 
@@ -137,12 +140,22 @@ namespace ModelView
             ñîõðàíèòüToolStripMenuItem.Size = new Size(166, 26);
             ñîõðàíèòüToolStripMenuItem.Text = "Ñîõðàíèòü";
             // 
+            // ClearButton
+            // 
+            ClearButton.Location = new Point(666, 360);
+            ClearButton.Name = "ClearButton";
+            ClearButton.Size = new Size(94, 29);
+            ClearButton.TabIndex = 3;
+            ClearButton.Text = "Î÷èñòèòü";
+            ClearButton.UseVisualStyleBackColor = true;
+            ClearButton.Click += ClearButton_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ScrollBar;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 473);
             Controls.Add(groupBox1);
             Controls.Add(menuStrip1);
             ForeColor = SystemColors.ControlText;
@@ -167,6 +180,7 @@ namespace ModelView
         private ToolStripMenuItem loadToolStripMenuItem;
         private ToolStripMenuItem çàãðóçèòüToolStripMenuItem;
         private ToolStripMenuItem ñîõðàíèòüToolStripMenuItem;
-        private Button button1;
+        private Button RemoveButton;
+        private Button ClearButton;
     }
 }
