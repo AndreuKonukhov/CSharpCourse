@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Text.RegularExpressions;
 
 namespace Model
@@ -32,10 +33,10 @@ namespace Model
         /// </summary>
         protected const int minYear = -1378;
 
-
         /// <summary>
         /// Наименование издания.
         /// </summary>
+        [Browsable(false)]
         public string Name
         {
             get => _name;
@@ -49,6 +50,7 @@ namespace Model
         /// <summary>
         /// Место публикации издания.
         /// </summary>
+        [Browsable(false)]
         public string Place
         {
             get => _place;
@@ -62,6 +64,7 @@ namespace Model
         /// <summary>
         /// Год публикации издания.
         /// </summary>
+        [Browsable(false)]
         public int Year
         {
             get => _year;
@@ -75,6 +78,7 @@ namespace Model
         /// <summary>
         /// Кол-во страниц в издaнии.
         /// </summary>
+        [Browsable(false)]
         public int PageCount
         {
             get => _pageCount;
@@ -83,6 +87,12 @@ namespace Model
                 _pageCount = value;
             }
         }
+
+        /// <summary>
+        /// Тип библиотечного издания
+        /// </summary>
+        [DisplayName("Тип издания")]
+        public abstract string EditionType { get; }
 
         /// <summary>
         /// Конструктор класса.
@@ -94,7 +104,6 @@ namespace Model
             Year = year;
             PageCount = pageCount;
         }
-
 
         /// <summary>
         /// Конструктор по умолчания.
@@ -155,7 +164,7 @@ namespace Model
         /// Метод, возвращающий информацию об издании
         /// </summary>
         /// <returns>Информация об издании</returns>
-        public abstract string GetInfo();
-
+        [DisplayName("Информация об издании")]
+        public abstract string GetInfo { get; }
     }
 }
