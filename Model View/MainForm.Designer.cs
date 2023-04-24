@@ -1,3 +1,5 @@
+using System.Windows.Forms;
+
 namespace ModelView
 {
     partial class MainForm
@@ -32,12 +34,12 @@ namespace ModelView
             EditionDataGridView = new DataGridView();
             AddButton = new Button();
             groupBox1 = new GroupBox();
+            ClearButton = new Button();
             RemoveButton = new Button();
             menuStrip1 = new MenuStrip();
             loadToolStripMenuItem = new ToolStripMenuItem();
-            çàãğóçèòüToolStripMenuItem = new ToolStripMenuItem();
-            ñîõğàíèòüToolStripMenuItem = new ToolStripMenuItem();
-            ClearButton = new Button();
+            Ğ·Ğ°Ğ³Ñ€ÑƒĞ·Ğ¸Ñ‚ÑŒToolStripMenuItem = new ToolStripMenuItem();
+            ÑĞ¾Ñ…Ñ€Ğ°Ğ½Ğ¸Ñ‚ÑŒToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)EditionDataGridView).BeginInit();
             groupBox1.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -45,18 +47,24 @@ namespace ModelView
             // 
             // EditionDataGridView
             // 
+            EditionDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            EditionDataGridView.BackgroundColor = SystemColors.InactiveBorder;
             EditionDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            EditionDataGridView.GridColor = SystemColors.GrayText;
             EditionDataGridView.Location = new Point(16, 92);
             EditionDataGridView.Name = "EditionDataGridView";
+            EditionDataGridView.RowHeadersVisible = false;
             EditionDataGridView.RowHeadersWidth = 51;
             EditionDataGridView.RowTemplate.Height = 29;
-            EditionDataGridView.Size = new Size(744, 262);
+            EditionDataGridView.RowTemplate.Resizable = DataGridViewTriState.True;
+            EditionDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            EditionDataGridView.Size = new Size(948, 262);
             EditionDataGridView.TabIndex = 0;
             // 
             // AddButton
             // 
-            AddButton.AccessibleDescription = "âàûâàûâàìâàìâàì";
-            AddButton.AccessibleName = "âàìâàì";
+            AddButton.AccessibleDescription = "Ğ²Ğ°Ñ‹Ğ²Ğ°Ñ‹Ğ²Ğ°Ğ¼Ğ²Ğ°Ğ¼Ğ²Ğ°Ğ¼";
+            AddButton.AccessibleName = "Ğ²Ğ°Ğ¼Ğ²Ğ°Ğ¼";
             AddButton.AccessibleRole = AccessibleRole.Caret;
             AddButton.AutoSize = true;
             AddButton.BackColor = SystemColors.ScrollBar;
@@ -83,13 +91,23 @@ namespace ModelView
             groupBox1.Controls.Add(RemoveButton);
             groupBox1.Controls.Add(AddButton);
             groupBox1.Controls.Add(EditionDataGridView);
-            groupBox1.Font = new Font("Lucida Handwriting", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox1.Font = new Font("Arial Narrow", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox1.Location = new Point(12, 49);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(776, 412);
+            groupBox1.Size = new Size(992, 412);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Áèáëèîòå÷íûå èçäàíèÿ";
+            groupBox1.Text = "Ğ‘Ğ¸Ğ±Ğ»Ğ¸Ğ¾Ñ‚ĞµÑ‡Ğ½Ñ‹Ğµ Ğ¸Ğ·Ğ´Ğ°Ğ½Ğ¸Ñ";
+            // 
+            // ClearButton
+            // 
+            ClearButton.Location = new Point(16, 360);
+            ClearButton.Name = "ClearButton";
+            ClearButton.Size = new Size(94, 29);
+            ClearButton.TabIndex = 3;
+            ClearButton.Text = "ĞÑ‡Ğ¸ÑÑ‚Ğ¸Ñ‚ÑŒ";
+            ClearButton.UseVisualStyleBackColor = true;
+            ClearButton.Click += ClearButton_Click;
             // 
             // RemoveButton
             // 
@@ -122,40 +140,30 @@ namespace ModelView
             // loadToolStripMenuItem
             // 
             loadToolStripMenuItem.BackColor = SystemColors.ScrollBar;
-            loadToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { çàãğóçèòüToolStripMenuItem, ñîõğàíèòüToolStripMenuItem });
+            loadToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { Ğ·Ğ°Ğ³Ñ€ÑƒĞ·Ğ¸Ñ‚ÑŒToolStripMenuItem, ÑĞ¾Ñ…Ñ€Ğ°Ğ½Ğ¸Ñ‚ÑŒToolStripMenuItem });
             loadToolStripMenuItem.ForeColor = Color.Black;
             loadToolStripMenuItem.Name = "loadToolStripMenuItem";
             loadToolStripMenuItem.Size = new Size(59, 24);
-            loadToolStripMenuItem.Text = "Ôàéë";
+            loadToolStripMenuItem.Text = "Ğ¤Ğ°Ğ¹Ğ»";
             // 
-            // çàãğóçèòüToolStripMenuItem
+            // Ğ·Ğ°Ğ³Ñ€ÑƒĞ·Ğ¸Ñ‚ÑŒToolStripMenuItem
             // 
-            çàãğóçèòüToolStripMenuItem.Name = "çàãğóçèòüToolStripMenuItem";
-            çàãğóçèòüToolStripMenuItem.Size = new Size(166, 26);
-            çàãğóçèòüToolStripMenuItem.Text = "Çàãğóçèòü";
+            Ğ·Ğ°Ğ³Ñ€ÑƒĞ·Ğ¸Ñ‚ÑŒToolStripMenuItem.Name = "Ğ·Ğ°Ğ³Ñ€ÑƒĞ·Ğ¸Ñ‚ÑŒToolStripMenuItem";
+            Ğ·Ğ°Ğ³Ñ€ÑƒĞ·Ğ¸Ñ‚ÑŒToolStripMenuItem.Size = new Size(166, 26);
+            Ğ·Ğ°Ğ³Ñ€ÑƒĞ·Ğ¸Ñ‚ÑŒToolStripMenuItem.Text = "Ğ—Ğ°Ğ³Ñ€ÑƒĞ·Ğ¸Ñ‚ÑŒ";
             // 
-            // ñîõğàíèòüToolStripMenuItem
+            // ÑĞ¾Ñ…Ñ€Ğ°Ğ½Ğ¸Ñ‚ÑŒToolStripMenuItem
             // 
-            ñîõğàíèòüToolStripMenuItem.Name = "ñîõğàíèòüToolStripMenuItem";
-            ñîõğàíèòüToolStripMenuItem.Size = new Size(166, 26);
-            ñîõğàíèòüToolStripMenuItem.Text = "Ñîõğàíèòü";
-            // 
-            // ClearButton
-            // 
-            ClearButton.Location = new Point(666, 360);
-            ClearButton.Name = "ClearButton";
-            ClearButton.Size = new Size(94, 29);
-            ClearButton.TabIndex = 3;
-            ClearButton.Text = "Î÷èñòèòü";
-            ClearButton.UseVisualStyleBackColor = true;
-            ClearButton.Click += ClearButton_Click;
+            ÑĞ¾Ñ…Ñ€Ğ°Ğ½Ğ¸Ñ‚ÑŒToolStripMenuItem.Name = "ÑĞ¾Ñ…Ñ€Ğ°Ğ½Ğ¸Ñ‚ÑŒToolStripMenuItem";
+            ÑĞ¾Ñ…Ñ€Ğ°Ğ½Ğ¸Ñ‚ÑŒToolStripMenuItem.Size = new Size(166, 26);
+            ÑĞ¾Ñ…Ñ€Ğ°Ğ½Ğ¸Ñ‚ÑŒToolStripMenuItem.Text = "Ğ¡Ğ¾Ñ…Ñ€Ğ°Ğ½Ğ¸Ñ‚ÑŒ";
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ScrollBar;
-            ClientSize = new Size(800, 473);
+            ClientSize = new Size(1018, 473);
             Controls.Add(groupBox1);
             Controls.Add(menuStrip1);
             ForeColor = SystemColors.ControlText;
@@ -178,8 +186,8 @@ namespace ModelView
         private GroupBox groupBox1;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem loadToolStripMenuItem;
-        private ToolStripMenuItem çàãğóçèòüToolStripMenuItem;
-        private ToolStripMenuItem ñîõğàíèòüToolStripMenuItem;
+        private ToolStripMenuItem Ğ·Ğ°Ğ³Ñ€ÑƒĞ·Ğ¸Ñ‚ÑŒToolStripMenuItem;
+        private ToolStripMenuItem ÑĞ¾Ñ…Ñ€Ğ°Ğ½Ğ¸Ñ‚ÑŒToolStripMenuItem;
         private Button RemoveButton;
         private Button ClearButton;
     }

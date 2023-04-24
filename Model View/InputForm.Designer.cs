@@ -37,6 +37,10 @@ namespace ModelView
             groupBox1 = new GroupBox();
             OKbutton = new Button();
             Cancelbutton = new Button();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -117,7 +121,7 @@ namespace ModelView
             // 
             // OKbutton
             // 
-            OKbutton.Location = new Point(188, 658);
+            OKbutton.Location = new Point(192, 658);
             OKbutton.Margin = new Padding(3, 4, 3, 4);
             OKbutton.Name = "OKbutton";
             OKbutton.Size = new Size(110, 40);
@@ -128,7 +132,7 @@ namespace ModelView
             // 
             // Cancelbutton
             // 
-            Cancelbutton.Location = new Point(316, 658);
+            Cancelbutton.Location = new Point(308, 658);
             Cancelbutton.Name = "Cancelbutton";
             Cancelbutton.Size = new Size(110, 40);
             Cancelbutton.TabIndex = 8;
@@ -136,11 +140,52 @@ namespace ModelView
             Cancelbutton.UseVisualStyleBackColor = true;
             Cancelbutton.Click += Cancelbutton_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(24, 701);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 9;
+            button1.Text = "Книга";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += Button1_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(124, 701);
+            button2.Name = "button2";
+            button2.Size = new Size(94, 29);
+            button2.TabIndex = 10;
+            button2.Text = "Сборник";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(224, 701);
+            button3.Name = "button3";
+            button3.Size = new Size(94, 29);
+            button3.TabIndex = 11;
+            button3.Text = "Диссертация";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(324, 701);
+            button4.Name = "button4";
+            button4.Size = new Size(94, 29);
+            button4.TabIndex = 12;
+            button4.Text = "Журнал";
+            button4.UseVisualStyleBackColor = true;
+            // 
             // InputForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(453, 732);
+            Controls.Add(button4);
+            Controls.Add(button3);
+            Controls.Add(button2);
+            Controls.Add(button1);
             Controls.Add(Cancelbutton);
             Controls.Add(OKbutton);
             Controls.Add(groupBox1);
@@ -164,5 +209,9 @@ namespace ModelView
         private GroupBox groupBox1;
         private Button OKbutton;
         private Button Cancelbutton;
+        private Button button1;
+        private Button button2;
+        private Button button3;
+        private Button button4;
     }
 }

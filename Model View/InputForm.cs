@@ -1,4 +1,6 @@
 
+using Model;
+
 namespace ModelView
 {
     public partial class InputForm : Form
@@ -111,6 +113,14 @@ namespace ModelView
         private void Cancelbutton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            Book book1 = new Book("Филиппова А.Г", "История",
+                "учебное пособие", "Москва", "Юнион", 2011, 126);
+            var eventArgs = new EditionEventArgs(book1);
+            EditionAdded?.Invoke(this, eventArgs);
         }
     }
 }

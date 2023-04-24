@@ -16,6 +16,9 @@ namespace ModelView
             InitializeComponent();
             var source = new BindingSource(_editionList, null);
             EditionDataGridView.DataSource = source;
+            EditionDataGridView.Columns[0].AutoSizeMode =
+                DataGridViewAutoSizeColumnMode.AllCells;
+
         }
 
         /// <summary>
@@ -62,7 +65,7 @@ namespace ModelView
         {
             if (MessageBox.Show("Вы действительно хотите очистить " +
                 "список всех изданий?", "Очистка всех изданий",
-                 MessageBoxButtons.OKCancel) == DialogResult.OK)
+                 MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 _editionList.Clear();
             }

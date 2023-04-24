@@ -33,7 +33,7 @@ namespace Model
             {
                 Console.WriteLine("Класс - " +
                     editionBase.GetType().Name +
-                    ":\n" + editionBase.GetInfo() + "\n");
+                    ":\n" + editionBase.GetInfo + "\n");
             }
             _ = Console.ReadKey();
 
@@ -268,7 +268,7 @@ namespace Model
             {
                 Console.WriteLine(
                     editionBase.GetType().Name +
-                    "\n" + editionBase.GetInfo() + "\n");
+                    "\n" + editionBase.GetInfo + "\n");
             }
 
             var actionDictionary = new Dictionary
@@ -288,7 +288,7 @@ namespace Model
             }
 
             Console.Write($"\nДобавлено новое издание:\n" +
-                $"{editionObject.GetInfo()}");
+                $"{editionObject.GetInfo}");
 
             _ = Console.ReadKey();
         }
