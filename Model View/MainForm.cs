@@ -1,5 +1,6 @@
 using Model;
 using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace ModelView
 {
@@ -69,6 +70,81 @@ namespace ModelView
             {
                 _editionList.Clear();
             }
+        }
+
+        private void SaveFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var fileBrowser = new SaveFileDialog
+            {
+                Filter = "EditionData (*.andr)|*.andr"
+            };
+
+            _ = fileBrowser.ShowDialog();
+
+            var path = fileBrowser.FileName;
+
+            var xmlSerializer = new XmlSerializer
+                (typeof(BindingList<EditionBase>));
+
+            if (string.IsNullOrEmpty(path))
+            {
+                return;
+            }
+
+            using (var file = File.Create(path))
+            {
+                xmlSerializer.Serialize(file, EditionDataGridView.DataSource);
+                file.Close();
+            }
+        }
+
+        private void LoadFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var fileBrowser = new OpenFileDialog
+            {
+                Filter = "EditionData (*.andr)|*.andr"
+            };
+
+            _ = fileBrowser.ShowDialog();
+
+            var path = fileBrowser.FileName;
+
+            if (string.IsNullOrEmpty(path))
+            {
+                return;
+            }
+
+            var xmlSerializer = new XmlSerializer
+                (typeof(BindingList<EditionBase>));
+
+            using (var file = new StreamReader(path))
+            {
+                _editionList = (BindingList<EditionBase>)xmlSerializer.
+                    Deserialize(file);
+            }
+
+            EditionDataGridView.DataSource = _editionList;
+        }
+
+        private void FilterButton_Click(object sender, EventArgs e)
+        {
+            var filter = new FilterForm();
+
+            filter.EditionListMain = _editionList;
+
+            filter.Show();
+
+            filter.MotionListFiltered += (_, args) =>
+            {
+                EditionDataGridView.DataSource = args.EditionListFiltered;
+            };
+
+            filter.Closed += (_, _) =>
+            {
+                FilterButton.Enabled = true;
+            };
+
+            FilterButton.Enabled = false;
         }
     }
 }

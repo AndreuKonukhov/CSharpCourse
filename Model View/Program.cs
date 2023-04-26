@@ -2,7 +2,6 @@ namespace ModelView
 {
     internal static class Program
     {
-
         /// <summary>
         ///  Основная точка входа для приложения.
         /// </summary>

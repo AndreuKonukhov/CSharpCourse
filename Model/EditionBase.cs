@@ -1,11 +1,16 @@
 using System.ComponentModel;
 using System.Text.RegularExpressions;
+using System.Xml.Serialization;
 
 namespace Model
 {
     /// <summary>
     /// Класс библиотечного издания.
     /// </summary>
+    [XmlInclude(typeof(Book))]
+    [XmlInclude(typeof(Collection))]
+    [XmlInclude(typeof(Dissertation))]
+    [XmlInclude(typeof(Magazine))]
     public abstract class EditionBase
     {
         /// <summary>
