@@ -20,7 +20,7 @@ namespace ModelView
         };
 
         /// <summary>
-        /// Dictionary of motion type names.
+        /// Словрь названий типов изданий.
         /// </summary>
         private readonly Dictionary<string, string> _listBoxToEditionType;
 
@@ -44,7 +44,7 @@ namespace ModelView
         public BindingList<EditionBase> EditionListMain { get; set; }
 
         /// <summary>
-        /// Filter form instance constructor.
+        /// Конструктор класса FilterForm.
         /// </summary>
         public FilterForm()
         {
@@ -63,6 +63,11 @@ namespace ModelView
                 (_listBoxToEditionType.Keys.ToArray());
         }
 
+        /// <summary>
+        /// Событие нажатия кнопки "Применить"
+        /// </summary>
+        /// <param name="sender">FilterButton</param>
+        /// <param name="e">Event argument.</param>
         private void FilterButton_Click(object sender, EventArgs e)
         {
             var valueFilteredList = new BindingList<EditionBase>();
@@ -94,12 +99,12 @@ namespace ModelView
             if (EditionTypeCheckedListBox.SelectedItems.Count == 0)
             {
                 typeFilteredList = EditionListMain;
-                action[0].Invoke(typeFilteredList);
+                action[1].Invoke(typeFilteredList);
             }
             else
             {
-                //action[0].Invoke(typeFilteredList);
                 action[0].Invoke(typeFilteredList);
+                action[1].Invoke(typeFilteredList);
             }
 
             var eventArgs = new EditionEventArgs
