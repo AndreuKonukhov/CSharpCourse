@@ -2,14 +2,23 @@ using Model;
 
 namespace ModelView
 {
+    /// <summary>
+    /// Абстрактный класс EditionBaseUserControl
+    /// </summary>
     public abstract partial class EditionBaseUserControl : UserControl
     {
+        /// <summary>
+        /// Абстрактный метод для получения экземпляра класса 
+        /// Edition c параметрами введеными в textbox
+        /// </summary>
+        /// <returns>ОЭкземпляр  Edition</returns>
         public abstract EditionBase GetEdition();
 
         /// <summary>
-        /// Wright input parameters in instance.
+        /// Запись параметров из textbox
+        /// в экземпляр класса.
         /// </summary>
-        /// <param name="actions">Action list of parameters.</param>
+        /// <param name="actions">Список из Action.</param>
         public void InputParameters(List<Action> actions)
         {
             foreach (var action in actions)

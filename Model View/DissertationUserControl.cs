@@ -2,13 +2,24 @@ using Model;
 
 namespace ModelView
 {
+    /// <summary>
+    /// Класс DissertationUserControl
+    /// </summary>
     public partial class DissertationUserControl : EditionBaseUserControl
     {
+        /// <summary>
+        /// Конструктор класса DissertationUserControl.
+        /// </summary>
         public DissertationUserControl()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Метод для получения объекта Edition с
+        /// параметрами введенными из textBox.
+        /// </summary>
+        /// <returns>Объект Edition</returns>
         public override EditionBase GetEdition()
         {
             var dissertation = new Dissertation();
@@ -57,10 +68,7 @@ namespace ModelView
 
             };
 
-            foreach (var action in actions)
-            {
-                action.Invoke();
-            }
+            InputParameters(actions);
 
             return dissertation;
         }

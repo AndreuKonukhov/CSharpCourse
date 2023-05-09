@@ -2,13 +2,24 @@ using Model;
 
 namespace ModelView
 {
+    /// <summary>
+    /// Класс BookUserControl
+    /// </summary>
     public partial class BookUserControl : EditionBaseUserControl
     {
+        /// <summary>
+        /// Конструктор класса BookUserControl.
+        /// </summary>
         public BookUserControl()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Метод для получения объекта Edition с
+        /// параметрами введенными из textBox
+        /// </summary>
+        /// <returns>Объект Edition</returns>
         public override EditionBase GetEdition()
         {
             var book = new Book();
@@ -52,10 +63,7 @@ namespace ModelView
 
             };
 
-            foreach (var action in actions)
-            {
-                action.Invoke();
-            }
+            InputParameters(actions);
 
             return book;
         }

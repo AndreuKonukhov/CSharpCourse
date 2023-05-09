@@ -2,13 +2,24 @@ using Model;
 
 namespace ModelView
 {
+    /// <summary>
+    /// Класс CollectionUserControl
+    /// </summary>
     public partial class CollectionUserControl : EditionBaseUserControl
     {
+        /// <summary>
+        /// Конструктор класса CollectionUserControl.
+        /// </summary>
         public CollectionUserControl()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Метод для получения объекта Edition с
+        /// параметрами введенными из textBox
+        /// </summary>
+        /// <returns>Объект Edition</returns>
         public override EditionBase GetEdition()
         {
             var collection = new Collection();
@@ -47,10 +58,7 @@ namespace ModelView
 
             };
 
-            foreach (var action in actions)
-            {
-                action.Invoke();
-            }
+            InputParameters(actions);
 
             return collection;
         }

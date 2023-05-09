@@ -2,13 +2,24 @@ using Model;
 
 namespace ModelView
 {
+    /// <summary>
+    /// Класс MagazineUserControl
+    /// </summary>
     public partial class MagazineUserControl : EditionBaseUserControl
     {
+        /// <summary>
+        /// Конструктор класса MagazineUserControl.
+        /// </summary>
         public MagazineUserControl()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Метод для получения объекта Edition с
+        /// параметрами введенными из textBox
+        /// </summary>
+        /// <returns>Объект Edition</returns>
         public override EditionBase GetEdition()
         {
             var magazine = new Magazine();
@@ -52,10 +63,7 @@ namespace ModelView
 
             };
 
-            foreach (var action in actions)
-            {
-                action.Invoke();
-            }
+            InputParameters(actions);
 
             return magazine;
         }
