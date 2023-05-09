@@ -28,6 +28,7 @@ namespace ModelView
         /// </summary>
         private void InitializeComponent()
         {
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(InputForm));
             ComboBoxEditionTypes = new ComboBox();
             label1 = new Label();
             bookUserControl1 = new BookUserControl();
@@ -49,7 +50,7 @@ namespace ModelView
             ComboBoxEditionTypes.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxEditionTypes.ForeColor = SystemColors.WindowText;
             ComboBoxEditionTypes.FormattingEnabled = true;
-            ComboBoxEditionTypes.Location = new Point(68, 40);
+            ComboBoxEditionTypes.Location = new Point(41, 40);
             ComboBoxEditionTypes.Margin = new Padding(3, 2, 3, 2);
             ComboBoxEditionTypes.Name = "ComboBoxEditionTypes";
             ComboBoxEditionTypes.Size = new Size(141, 23);
@@ -58,7 +59,7 @@ namespace ModelView
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(69, 22);
+            label1.Location = new Point(42, 22);
             label1.Name = "label1";
             label1.Size = new Size(77, 15);
             label1.TabIndex = 1;
@@ -116,7 +117,7 @@ namespace ModelView
             // 
             // OKbutton
             // 
-            OKbutton.Location = new Point(168, 494);
+            OKbutton.Location = new Point(175, 481);
             OKbutton.Name = "OKbutton";
             OKbutton.Size = new Size(96, 30);
             OKbutton.TabIndex = 7;
@@ -126,7 +127,7 @@ namespace ModelView
             // 
             // Cancelbutton
             // 
-            Cancelbutton.Location = new Point(270, 494);
+            Cancelbutton.Location = new Point(277, 481);
             Cancelbutton.Margin = new Padding(3, 2, 3, 2);
             Cancelbutton.Name = "Cancelbutton";
             Cancelbutton.Size = new Size(96, 30);
@@ -137,7 +138,7 @@ namespace ModelView
             // 
             // button1
             // 
-            button1.Location = new Point(21, 526);
+            button1.Location = new Point(27, 526);
             button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
             button1.Size = new Size(82, 22);
@@ -148,7 +149,7 @@ namespace ModelView
             // 
             // button2
             // 
-            button2.Location = new Point(108, 526);
+            button2.Location = new Point(115, 526);
             button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
             button2.Size = new Size(82, 22);
@@ -159,7 +160,7 @@ namespace ModelView
             // 
             // button3
             // 
-            button3.Location = new Point(196, 526);
+            button3.Location = new Point(203, 526);
             button3.Margin = new Padding(3, 2, 3, 2);
             button3.Name = "button3";
             button3.Size = new Size(82, 22);
@@ -170,7 +171,7 @@ namespace ModelView
             // 
             // button4
             // 
-            button4.Location = new Point(284, 526);
+            button4.Location = new Point(291, 526);
             button4.Margin = new Padding(3, 2, 3, 2);
             button4.Name = "button4";
             button4.Size = new Size(82, 22);
@@ -183,7 +184,7 @@ namespace ModelView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(396, 549);
+            ClientSize = new Size(396, 555);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -193,6 +194,7 @@ namespace ModelView
             Controls.Add(groupBox1);
             Controls.Add(ComboBoxEditionTypes);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "InputForm";
             Text = "Добавление издания";

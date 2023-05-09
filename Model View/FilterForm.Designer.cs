@@ -1,4 +1,4 @@
-﻿namespace ModelView
+namespace ModelView
 {
     partial class FilterForm
     {
@@ -69,8 +69,7 @@
             Controls.Add(FilterButton);
             Controls.Add(EditionTypeCheckedListBox);
             Name = "FilterForm";
-            Text = "FolterForm";
-            Load += FilterForm_Load;
+            Text = "FilterForm";
             ResumeLayout(false);
         }
 

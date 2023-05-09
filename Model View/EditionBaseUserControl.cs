@@ -15,7 +15,7 @@ namespace ModelView
         public abstract EditionBase GetEdition();
 
         /// <summary>
-        /// Запись параметров из textbox
+        /// Запись параметров из textBox
         /// в экземпляр класса.
         /// </summary>
         /// <param name="actions">Список из Action.</param>

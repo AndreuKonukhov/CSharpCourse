@@ -4,6 +4,9 @@ using System.Xml.Serialization;
 
 namespace ModelView
 {
+    /// <summary>
+    /// Класс MainForm.
+    /// </summary>
     public partial class MainForm : Form
     {
         /// <summary>
@@ -12,14 +15,17 @@ namespace ModelView
         /// 
         private static BindingList<EditionBase> _editionList = new();
 
+        /// <summary>
+        /// Конструктор класса MainForm.
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
             var source = new BindingSource(_editionList, null);
             EditionDataGridView.DataSource = source;
+
             EditionDataGridView.Columns[0].AutoSizeMode =
                 DataGridViewAutoSizeColumnMode.AllCells;
-
         }
 
         /// <summary>
@@ -49,11 +55,15 @@ namespace ModelView
             AddButton.Enabled = false;
         }
 
+        /// <summary>
+        /// Событие нажатия кнопки удаляющей издание.
+        /// </summary>
+        /// <param name="sender">RemoveButton</param>
+        /// <param name="e">Event argument.</param>
         private void RemoveButton_Click(object sender, EventArgs e)
         {
             if (EditionDataGridView.SelectedCells.Count != 0)
             {
-                // TODO:+ refactor
                 foreach (DataGridViewRow row in
                     EditionDataGridView.SelectedRows)
                 {
@@ -62,6 +72,11 @@ namespace ModelView
             }
         }
 
+        /// <summary>
+        /// Событие нажатия кнопки "Очистить"
+        /// </summary>
+        /// <param name="sender">ClearButton</param>
+        /// <param name="e">Event argument.</param>
         private void ClearButton_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Вы действительно хотите очистить " +
@@ -72,11 +87,16 @@ namespace ModelView
             }
         }
 
+        /// <summary>
+        /// События нажатия "Сохранить"
+        /// </summary>
+        /// <param name="sender">SaveToolStripMenuItem.</param>
+        /// <param name="e">Event argument.</param>
         private void SaveFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var fileBrowser = new SaveFileDialog
             {
-                Filter = "EditionData (*.andr)|*.andr"
+                Filter = "EditionData (*.eda)|*.eda"
             };
 
             _ = fileBrowser.ShowDialog();
@@ -98,11 +118,16 @@ namespace ModelView
             }
         }
 
+        /// <summary>
+        /// События нажатия "Загрузить"
+        /// </summary>
+        /// <param name="sender">LoadFileToolStripMenuItem.</param>
+        /// <param name="e">Event argument.</param>
         private void LoadFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var fileBrowser = new OpenFileDialog
             {
-                Filter = "EditionData (*.andr)|*.andr"
+                Filter = "EditionData (*.eda)|*.eda"
             };
 
             _ = fileBrowser.ShowDialog();
@@ -126,6 +151,11 @@ namespace ModelView
             EditionDataGridView.DataSource = _editionList;
         }
 
+        /// <summary>
+        /// Событие нажатия кнопки фильтра.
+        /// </summary>
+        /// <param name="sender">FilterButton.</param>
+        /// <param name="e">Event argument.</param>
         private void FilterButton_Click(object sender, EventArgs e)
         {
             var filter = new FilterForm();

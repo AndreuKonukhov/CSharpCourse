@@ -3,10 +3,13 @@ using System.ComponentModel;
 
 namespace ModelView
 {
+    /// <summary>
+    /// Класс FilterForm
+    /// </summary>
     public partial class FilterForm : Form
     {
         /// <summary>
-        /// Dictionary of motion types.
+        /// Словарь типов изданий.
         /// </summary>
         private readonly Dictionary<string, Type> _editionTypes = new()
         {
@@ -45,7 +48,7 @@ namespace ModelView
         /// </summary>
         public FilterForm()
         {
-            // TODO:+ remove arguments from constructor
+
             InitializeComponent();
 
             _listBoxToEditionType = new Dictionary<string, string>()
@@ -58,11 +61,6 @@ namespace ModelView
 
             EditionTypeCheckedListBox.Items.AddRange
                 (_listBoxToEditionType.Keys.ToArray());
-        }
-
-        private void FilterForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void FilterButton_Click(object sender, EventArgs e)
@@ -91,7 +89,6 @@ namespace ModelView
                     }
                 }),
 
-                //
             };
 
             if (EditionTypeCheckedListBox.SelectedItems.Count == 0)
