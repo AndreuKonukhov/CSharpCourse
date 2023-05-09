@@ -4,33 +4,34 @@ using System.ComponentModel;
 namespace ModelView
 {
     /// <summary>
-    /// Class MotionEventArgs.
+    /// Класс MotionEventArgs.
     /// </summary>
     public class EditionEventArgs : EventArgs
     {
         /// <summary>
-        /// Motion.
+        /// Экземпляр библиотечного издания.
         /// </summary>
         public EditionBase Edition { get; private set; }
 
         /// <summary>
-        /// Constructor of event MotionEventArgs class with MotionBase.
+        /// Отфильтрованный список библиотечных изданий.
         /// </summary>
-        /// <param name="motion">Motion.</param>
+        public BindingList<EditionBase> EditionListFiltered { get; private set; }
+
+        /// <summary>
+        /// Конструктор класса EditionEventArgs
+        /// </summary>
+        /// <param name="edition">Экземпляр класса EditionBase.</param>
         public EditionEventArgs(EditionBase edition)
         {
             Edition = edition;
         }
 
         /// <summary>
-        /// Filtered motion list.
+        /// Конструктор класса EditionEventArgs
         /// </summary>
-        public BindingList<EditionBase> EditionListFiltered { get; private set; }
-
-        /// <summary>
-        /// Constructor of event MotionEventArgs class with filtered motion list.
-        /// </summary>
-        /// <param name="motionListFiltered">Filtered motion list.</param>
+        /// <param name="editionListFiltered">
+        /// Отфильтрованный список библиотечных изданий.</param>
         public EditionEventArgs(BindingList<EditionBase> editionListFiltered)
         {
             EditionListFiltered = editionListFiltered;

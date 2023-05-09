@@ -121,16 +121,17 @@ namespace ModelView
         }
 
         /// <summary>
-        /// Событие нажатия кнопки "О
+        /// Событие нажатия кнопки "Отмена"
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void Cancelbutton_Click(object sender, EventArgs e)
         {
             Close();
         }
 
 #if DEBUG
+        /// <summary>
+        /// Событие нажатия кнопки.
+        /// </summary>
         private void Button1_Click(object sender, EventArgs e)
         {
             Book book = new Book("Филиппова А.Г", "История",
@@ -139,6 +140,9 @@ namespace ModelView
             EditionAdded?.Invoke(this, eventArgs);
         }
 
+        /// <summary>
+        /// Событие нажатия кнопки.
+        /// </summary>
         private void Button2_Click(object sender, EventArgs e)
         {
             Collection collection = new Collection(
@@ -149,6 +153,9 @@ namespace ModelView
             EditionAdded?.Invoke(this, eventArgs);
         }
 
+        /// <summary>
+        /// Событие нажатия кнопки.
+        /// </summary>
         private void Button3_Click(object sender, EventArgs e)
         {
             Dissertation dissertation = new Dissertation(
@@ -161,6 +168,9 @@ namespace ModelView
             EditionAdded?.Invoke(this, eventArgs);
         }
 
+        /// <summary>
+        /// Событие нажатия кнопки.
+        /// </summary>
         private void Button4_Click(object sender, EventArgs e)
         {
             Magazine magazine = new Magazine("Вопросы", "Научный журнал",
