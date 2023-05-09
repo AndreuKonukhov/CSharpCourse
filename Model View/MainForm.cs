@@ -23,7 +23,7 @@ namespace ModelView
         }
 
         /// <summary>
-        /// Click event to add an MotionBase object to the list.
+        /// События нажатся кнопки добавления библиотечного издания.
         /// </summary>
         /// <param name="sender">AddButton.</param>
         /// <param name="e">Event argument.</param>

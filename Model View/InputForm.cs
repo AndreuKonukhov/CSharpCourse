@@ -3,22 +3,24 @@ using Model;
 
 namespace ModelView
 {
+    /// <summary>
+    /// Класс формы для ввода библиотечного издания.
+    /// </summary>
     public partial class InputForm : Form
     {
-
         /// <summary>
-        /// Dictionary of motion user controls.
+        /// Словарь объектов UserControl.
         /// </summary>
         private readonly Dictionary<string,
             UserControl> _comboBoxToUserControl;
 
         /// <summary>
-        /// Handler to event of adding motion.
+        /// Обработчик события добавления библиотечного издания.
         /// </summary>
         private EventHandler<EditionEventArgs> _editionAdded;
 
         /// <summary>
-        /// EventHandler _motionAdded field's property.
+        /// Обработчик события добавления библиотечного издания.
         /// </summary>
         public EventHandler<EditionEventArgs> EditionAdded
         {
@@ -26,6 +28,10 @@ namespace ModelView
             set => _editionAdded = value;
         }
 
+
+        /// <summary>
+        /// Конструктор класса InputForm.
+        /// </summary>
         public InputForm()
         {
             InitializeComponent();
@@ -44,20 +50,20 @@ namespace ModelView
             ComboBoxEditionTypes.Items.AddRange(motionTypes);
 
             ComboBoxEditionTypes.SelectedIndexChanged +=
-                ComboBoxMotionTypes_SelectedIndexChanged;
+                ComboBoxEditionTypes_SelectedIndexChanged;
         }
 
         /// <summary>
-        /// Click event to check changes in ComboBox.
+        /// Событие выбора типа библиотечного издания в выпадающем списке.
         /// </summary>
-        /// <param name="sender">ComboBoxMotionTypes.</param>
-        /// <param name="e">Event argument.</param>
-        private void ComboBoxMotionTypes_SelectedIndexChanged
+        private void ComboBoxEditionTypes_SelectedIndexChanged
             (object sender, EventArgs e)
         {
             string selectedState = ComboBoxEditionTypes.SelectedItem.
             ToString();
 
+            //Перебор всех UserControl,
+            //Отображение выбранного и скрытие остальных.
             foreach (var (editionType, userControl) in
                 _comboBoxToUserControl)
             {
@@ -69,8 +75,12 @@ namespace ModelView
             }
         }
 
+        /// <summary>
+        /// Событие нажатия кнопки OK.
+        /// </summary>
         private void OKbutton_Click(object sender, EventArgs e)
         {
+            //Проверка на пустое значение в ComboBox.
             if (string.IsNullOrEmpty(ComboBoxEditionTypes.Text))
             {
                 Close();
@@ -98,8 +108,8 @@ namespace ModelView
                         (Exception))
                     {
                         _ = MessageBox.Show
-                            ($"Incorrect input parameters.\n" +
-                            $"Error: {exception.Message}");
+                            ($"Некоректный ввод.\n" +
+                            $"Ошибка: {exception.Message}");
                     }
                     else
                     {
@@ -110,11 +120,17 @@ namespace ModelView
 
         }
 
+        /// <summary>
+        /// Событие нажатия кнопки "О
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Cancelbutton_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+#if DEBUG
         private void Button1_Click(object sender, EventArgs e)
         {
             Book book = new Book("Филиппова А.Г", "История",
@@ -154,3 +170,4 @@ namespace ModelView
         }
     }
 }
+#endif
