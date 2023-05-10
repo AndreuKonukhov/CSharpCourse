@@ -30,7 +30,7 @@ namespace ModelView
         private EventHandler<EditionEventArgs> _editionListFiltered;
 
         /// <summary>
-        /// EventHandler _motionListFiltered field's property.
+        /// Обработчик события фильтрации изданий.
         /// </summary>
         public EventHandler<EditionEventArgs> EditionListFiltered
         {
@@ -39,7 +39,7 @@ namespace ModelView
         }
 
         /// <summary>
-        /// Property for link to MainForm _motionList object.
+        /// Св-во для ссылки на главную форму
         /// </summary>
         public BindingList<EditionBase> EditionListMain { get; set; }
 
@@ -48,15 +48,14 @@ namespace ModelView
         /// </summary>
         public FilterForm()
         {
-
             InitializeComponent();
 
             _listBoxToEditionType = new Dictionary<string, string>()
             {
-                {"Книга", "Book"},
-                {"Сборник", "Collection"},
-                {"Диссертация", "Dissertation"},
-                {"Журнал", "Magazine"},
+                {"Книга", nameof(Book)},
+                {"Сборник", nameof(Collection)},
+                {"Диссертация", nameof(Dissertation)},
+                {"Журнал", nameof(Magazine)},
             };
 
             EditionTypeCheckedListBox.Items.AddRange

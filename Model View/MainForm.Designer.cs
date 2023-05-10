@@ -30,7 +30,7 @@ namespace ModelView
         /// </summary>
         private void InitializeComponent()
         {
-            var dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            var dataGridViewCellStyle1 = new DataGridViewCellStyle();
             var resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             EditionDataGridView = new DataGridView();
             AddButton = new Button();
@@ -52,14 +52,14 @@ namespace ModelView
             EditionDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             EditionDataGridView.BackgroundColor = SystemColors.Menu;
             EditionDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Arial Unicode MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.MenuText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            EditionDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Arial Unicode MS", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.MenuText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            EditionDataGridView.DefaultCellStyle = dataGridViewCellStyle1;
             EditionDataGridView.GridColor = SystemColors.MenuText;
             EditionDataGridView.Location = new Point(16, 72);
             EditionDataGridView.Name = "EditionDataGridView";
@@ -205,6 +205,7 @@ namespace ModelView
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "иблиотека";
             ((System.ComponentModel.ISupportInitialize)EditionDataGridView).EndInit();
             groupBox1.ResumeLayout(false);

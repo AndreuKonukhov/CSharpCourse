@@ -1,4 +1,3 @@
-
 using Model;
 
 namespace ModelView
@@ -105,7 +104,9 @@ namespace ModelView
                         exception.GetType() == typeof
                         (ArgumentException) ||
                         exception.GetType() == typeof
-                        (Exception))
+                        (Exception) ||
+                        exception.GetType() == typeof
+                        (System.FormatException))
                     {
                         _ = MessageBox.Show
                             ($"Некоректный ввод.\n" +
