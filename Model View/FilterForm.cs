@@ -108,32 +108,12 @@ namespace ModelView
                 })
 
             };
-            /*
-            action[0].Invoke(typeFilteredList);
 
-            var eventArgs = new EditionEventArgs
-                (typeFilteredList);
-            EditionListFiltered?.Invoke(this, eventArgs);*/
             action[0].Invoke(typeFilteredList);
             action[1].Invoke(typeFilteredList);
             var eventArgs = new EditionEventArgs
                 (textFilteredList);
             EditionListFiltered?.Invoke(this, eventArgs);
-            /*
-            if (EditionTypeCheckedListBox.SelectedItems.Count == 0)
-            {
-                typeFilteredList = EditionListMain;
-                action[0].Invoke(typeFilteredList);
-            }
-            else
-            {
-                action[0].Invoke(typeFilteredList);
-                //action[1].Invoke(typeFilteredList);
-            }
-
-            var eventArgs = new EditionEventArgs
-                (textFilteredList);
-            EditionListFiltered?.Invoke(this, eventArgs);*/
         }
         private void ResetButton_Click(object sender, EventArgs e)
         {
