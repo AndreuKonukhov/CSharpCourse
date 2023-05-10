@@ -87,7 +87,7 @@ namespace ModelView
         }
 
         /// <summary>
-        /// События нажатия "Сохранить"
+        /// Событие нажатия "Сохранить"
         /// </summary>
         /// <param name="sender">SaveToolStripMenuItem.</param>
         /// <param name="e">Event argument.</param>
@@ -118,7 +118,7 @@ namespace ModelView
         }
 
         /// <summary>
-        /// События нажатия "Загрузить"
+        /// Событие нажатия "Загрузить"
         /// </summary>
         /// <param name="sender">LoadFileToolStripMenuItem.</param>
         /// <param name="e">Event argument.</param>
