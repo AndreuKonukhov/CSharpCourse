@@ -114,7 +114,7 @@ namespace ModelView
                     }
                     else
                     {
-                        throw exception;
+                        throw;
                     }
                 }
             }
