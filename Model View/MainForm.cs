@@ -12,8 +12,7 @@ namespace ModelView
         /// <summary>
         /// Список библиотечных изданий.
         /// </summary>
-        /// 
-        private static BindingList<EditionBase> _editionList = new();
+        private BindingList<EditionBase> _editionList = new();
 
         /// <summary>
         /// Конструктор класса MainForm.
