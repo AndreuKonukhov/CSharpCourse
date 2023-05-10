@@ -30,7 +30,9 @@ namespace ModelView
         {
             EditionTypeCheckedListBox = new CheckedListBox();
             FilterButton = new Button();
-            button2 = new Button();
+            ResetButton = new Button();
+            textBox = new TextBox();
+            label1 = new Label();
             SuspendLayout();
             // 
             // EditionTypeCheckedListBox
@@ -51,32 +53,54 @@ namespace ModelView
             FilterButton.UseVisualStyleBackColor = true;
             FilterButton.Click += FilterButton_Click;
             // 
-            // button2
+            // ResetButton
             // 
-            button2.Location = new Point(215, 251);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 2;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            ResetButton.Location = new Point(215, 251);
+            ResetButton.Name = "ResetButton";
+            ResetButton.Size = new Size(94, 29);
+            ResetButton.TabIndex = 2;
+            ResetButton.Text = "Сбросить";
+            ResetButton.UseVisualStyleBackColor = true;
+            ResetButton.Click += ResetButton_Click;
+            // 
+            // textBox
+            // 
+            textBox.Location = new Point(38, 193);
+            textBox.Name = "textBox";
+            textBox.Size = new Size(199, 27);
+            textBox.TabIndex = 3;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(38, 170);
+            label1.Name = "label1";
+            label1.Size = new Size(127, 20);
+            label1.TabIndex = 4;
+            label1.Text = "Поиск по строке:";
             // 
             // FilterForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(339, 288);
-            Controls.Add(button2);
+            Controls.Add(label1);
+            Controls.Add(textBox);
+            Controls.Add(ResetButton);
             Controls.Add(FilterButton);
             Controls.Add(EditionTypeCheckedListBox);
             Name = "FilterForm";
             Text = "FilterForm";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private CheckedListBox EditionTypeCheckedListBox;
         private Button FilterButton;
-        private Button button2;
+        private Button ResetButton;
+        private TextBox textBox;
+        private Label label1;
     }
 }

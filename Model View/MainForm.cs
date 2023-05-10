@@ -164,7 +164,7 @@ namespace ModelView
 
             filter.Show();
 
-            filter.MotionListFiltered += (_, args) =>
+            filter.EditionListFiltered += (_, args) =>
             {
                 EditionDataGridView.DataSource = args.EditionListFiltered;
             };

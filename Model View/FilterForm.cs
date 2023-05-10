@@ -13,10 +13,10 @@ namespace ModelView
         /// </summary>
         private readonly Dictionary<string, Type> _editionTypes = new()
         {
-            {"Книга", typeof(Book)},
-            {"Сборник", typeof(Collection)},
-            {"Диссертация", typeof(Dissertation)},
-            {"Журнал", typeof(Magazine)}
+            {nameof(Book), typeof(Book)},
+            {nameof(Collection), typeof(Collection)},
+            {nameof(Dissertation), typeof(Dissertation)},
+            {nameof(Magazine), typeof(Magazine)}
         };
 
         /// <summary>
@@ -25,14 +25,14 @@ namespace ModelView
         private readonly Dictionary<string, string> _listBoxToEditionType;
 
         /// <summary>
-        /// Handler to event of filtering motion.
+        /// Обработчик события фильтрации изданий.
         /// </summary>
         private EventHandler<EditionEventArgs> _editionListFiltered;
 
         /// <summary>
         /// EventHandler _motionListFiltered field's property.
         /// </summary>
-        public EventHandler<EditionEventArgs> MotionListFiltered
+        public EventHandler<EditionEventArgs> EditionListFiltered
         {
             get => _editionListFiltered;
             set => _editionListFiltered = value;
@@ -53,10 +53,10 @@ namespace ModelView
 
             _listBoxToEditionType = new Dictionary<string, string>()
             {
-                {"Книга", "Книга"},
-                {"Сборник", "Сборник"},
-                {"Диссертация", "Диссертация"},
-                {"Журнал", "Журнал"},
+                {"Книга", "Book"},
+                {"Сборник", "Collection"},
+                {"Диссертация", "Dissertation"},
+                {"Журнал", "Magazine"},
             };
 
             EditionTypeCheckedListBox.Items.AddRange
@@ -70,7 +70,7 @@ namespace ModelView
         /// <param name="e">Event argument.</param>
         private void FilterButton_Click(object sender, EventArgs e)
         {
-            var valueFilteredList = new BindingList<EditionBase>();
+            var textFilteredList = new BindingList<EditionBase>();
             var typeFilteredList = new BindingList<EditionBase>();
 
             var action = new List<Action<BindingList<EditionBase>>>
@@ -94,24 +94,51 @@ namespace ModelView
                     }
                 }),
 
-            };
+                new Action<BindingList<EditionBase>>
+                (
+                (BindingList<EditionBase> typeFilteredList) =>
+                {
+                    foreach (var edition in typeFilteredList)
+                    {
+                        if (edition.GetInfo.Contains(textBox.Text))
+                        {
+                            textFilteredList.Add(edition);
+                        }
+                    }
+                })
 
+            };
+            /*
+            action[0].Invoke(typeFilteredList);
+
+            var eventArgs = new EditionEventArgs
+                (typeFilteredList);
+            EditionListFiltered?.Invoke(this, eventArgs);*/
+            action[0].Invoke(typeFilteredList);
+            action[1].Invoke(typeFilteredList);
+            var eventArgs = new EditionEventArgs
+                (textFilteredList);
+            EditionListFiltered?.Invoke(this, eventArgs);
+            /*
             if (EditionTypeCheckedListBox.SelectedItems.Count == 0)
             {
                 typeFilteredList = EditionListMain;
-                action[1].Invoke(typeFilteredList);
+                action[0].Invoke(typeFilteredList);
             }
             else
             {
                 action[0].Invoke(typeFilteredList);
-                action[1].Invoke(typeFilteredList);
+                //action[1].Invoke(typeFilteredList);
             }
 
             var eventArgs = new EditionEventArgs
-                (valueFilteredList);
-            MotionListFiltered?.Invoke(this, eventArgs);
-
-
+                (textFilteredList);
+            EditionListFiltered?.Invoke(this, eventArgs);*/
+        }
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            var eventArgs = new EditionEventArgs(EditionListMain);
+            EditionListFiltered?.Invoke(this, eventArgs);
         }
     }
 }
