@@ -196,7 +196,9 @@ namespace ModelView
             Controls.Add(label1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
             Name = "InputForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Добавление издания";
             groupBox1.ResumeLayout(false);
             ResumeLayout(false);

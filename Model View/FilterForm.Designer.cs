@@ -111,7 +111,9 @@ namespace ModelView
             Controls.Add(label1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
             Name = "FilterForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FilterForm";
             ResumeLayout(false);
             PerformLayout();

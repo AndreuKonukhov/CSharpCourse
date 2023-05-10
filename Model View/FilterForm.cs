@@ -114,6 +114,12 @@ namespace ModelView
                 (textFilteredList);
             EditionListFiltered?.Invoke(this, eventArgs);
         }
+
+        /// <summary>
+        /// Событие нажатия кнопки "Сбросить"
+        /// </summary>
+        /// <param name="sender">ResetButton</param>
+        /// <param name="e">Event argument.</param>
         private void ResetButton_Click(object sender, EventArgs e)
         {
             var eventArgs = new EditionEventArgs(EditionListMain);
