@@ -15,6 +15,11 @@ namespace ModelView
         private BindingList<EditionBase> _editionList = new();
 
         /// <summary>
+        /// Список библиотечных изданий.
+        /// </summary>
+        private BindingList<EditionBase> _filt = new();
+
+        /// <summary>
         /// Конструктор класса MainForm.
         /// </summary>
         public MainForm()
@@ -64,9 +69,13 @@ namespace ModelView
             if (EditionDataGridView.SelectedCells.Count != 0)
             {
                 foreach (DataGridViewRow row in
-                    EditionDataGridView.SelectedRows)
+                EditionDataGridView.SelectedRows)
                 {
-                    _editionList.RemoveAt(row.Index);
+                    _ = _editionList.Remove(row.DataBoundItem
+                    as EditionBase);
+
+                    _ = _filt.Remove(row.DataBoundItem
+                    as EditionBase);
                 }
             }
         }
@@ -166,6 +175,7 @@ namespace ModelView
             filter.EditionListFiltered += (_, args) =>
             {
                 EditionDataGridView.DataSource = args.EditionListFiltered;
+                _filt = args.EditionListFiltered;
             };
 
             filter.Closed += (_, _) =>
