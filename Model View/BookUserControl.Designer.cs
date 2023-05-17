@@ -47,118 +47,126 @@ namespace ModelView
             // textBox1
             // 
             textBox1.Cursor = Cursors.IBeam;
-            textBox1.Location = new Point(1, 22);
+            textBox1.Location = new Point(1, 29);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "Введите текст";
-            textBox1.Size = new Size(310, 23);
+            textBox1.Size = new Size(354, 27);
             textBox1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(1, 3);
+            label1.Location = new Point(1, 4);
             label1.Name = "label1";
-            label1.Size = new Size(40, 15);
+            label1.Size = new Size(51, 20);
             label1.TabIndex = 1;
             label1.Text = "Автор";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(1, 56);
+            label2.Location = new Point(1, 75);
             label2.Name = "label2";
-            label2.Size = new Size(90, 15);
+            label2.Size = new Size(116, 20);
             label2.TabIndex = 2;
             label2.Text = "Наименование";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(1, 104);
+            label3.Location = new Point(1, 139);
             label3.Name = "label3";
-            label3.Size = new Size(27, 15);
+            label3.Size = new Size(35, 20);
             label3.TabIndex = 3;
             label3.Text = "Тип";
             // 
             // textBox2
             // 
             textBox2.Cursor = Cursors.IBeam;
-            textBox2.Location = new Point(1, 72);
+            textBox2.Location = new Point(1, 96);
+            textBox2.Margin = new Padding(3, 4, 3, 4);
             textBox2.Name = "textBox2";
             textBox2.PlaceholderText = "Введите текст";
-            textBox2.Size = new Size(310, 23);
+            textBox2.Size = new Size(354, 27);
             textBox2.TabIndex = 4;
             // 
             // textBox3
             // 
             textBox3.Cursor = Cursors.IBeam;
-            textBox3.Location = new Point(1, 122);
+            textBox3.Location = new Point(1, 163);
+            textBox3.Margin = new Padding(3, 4, 3, 4);
             textBox3.Name = "textBox3";
             textBox3.PlaceholderText = "Введите текст";
-            textBox3.Size = new Size(310, 23);
+            textBox3.Size = new Size(354, 27);
             textBox3.TabIndex = 5;
             // 
             // textBox4
             // 
             textBox4.Cursor = Cursors.IBeam;
-            textBox4.Location = new Point(1, 172);
+            textBox4.Location = new Point(1, 229);
+            textBox4.Margin = new Padding(3, 4, 3, 4);
             textBox4.Name = "textBox4";
             textBox4.PlaceholderText = "Введите текст";
-            textBox4.Size = new Size(310, 23);
+            textBox4.Size = new Size(354, 27);
             textBox4.TabIndex = 6;
             // 
             // textBox5
             // 
             textBox5.Cursor = Cursors.IBeam;
-            textBox5.Location = new Point(1, 222);
+            textBox5.Location = new Point(1, 296);
+            textBox5.Margin = new Padding(3, 4, 3, 4);
             textBox5.Name = "textBox5";
             textBox5.PlaceholderText = "Введите текст";
-            textBox5.Size = new Size(310, 23);
+            textBox5.Size = new Size(354, 27);
             textBox5.TabIndex = 7;
             // 
             // textBox6
             // 
             textBox6.Cursor = Cursors.IBeam;
-            textBox6.Location = new Point(1, 272);
+            textBox6.Location = new Point(1, 363);
+            textBox6.Margin = new Padding(3, 4, 3, 4);
+            textBox6.MaxLength = 5;
             textBox6.Name = "textBox6";
             textBox6.PlaceholderText = "Введите число";
-            textBox6.Size = new Size(140, 23);
+            textBox6.Size = new Size(159, 27);
             textBox6.TabIndex = 8;
             textBox6.TextAlign = HorizontalAlignment.Center;
+            textBox6.KeyPress += Year_KeyPress;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(1, 154);
+            label4.Location = new Point(1, 205);
             label4.Name = "label4";
-            label4.Size = new Size(112, 15);
+            label4.Size = new Size(140, 20);
             label4.TabIndex = 9;
             label4.Text = "Место публикации";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(1, 204);
+            label5.Location = new Point(1, 272);
             label5.Name = "label5";
-            label5.Size = new Size(57, 15);
+            label5.Size = new Size(73, 20);
             label5.TabIndex = 10;
             label5.Text = "Издатель";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(27, 254);
+            label6.Location = new Point(31, 339);
             label6.Name = "label6";
-            label6.Size = new Size(96, 15);
+            label6.Size = new Size(121, 20);
             label6.TabIndex = 11;
             label6.Text = "Год публикации";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(196, 254);
+            label7.Location = new Point(224, 339);
             label7.Name = "label7";
-            label7.Size = new Size(94, 15);
+            label7.Size = new Size(119, 20);
             label7.TabIndex = 13;
             label7.Text = "Кол-во страниц";
             // 
@@ -166,16 +174,19 @@ namespace ModelView
             // 
             textBox7.BackColor = SystemColors.Window;
             textBox7.Cursor = Cursors.IBeam;
-            textBox7.Location = new Point(171, 272);
+            textBox7.Location = new Point(195, 363);
+            textBox7.Margin = new Padding(3, 4, 3, 4);
+            textBox7.MaxLength = 5;
             textBox7.Name = "textBox7";
             textBox7.PlaceholderText = "Введите число";
-            textBox7.Size = new Size(140, 23);
+            textBox7.Size = new Size(159, 27);
             textBox7.TabIndex = 12;
             textBox7.TextAlign = HorizontalAlignment.Center;
+            textBox7.KeyPress += CountPage_KeyPress;
             // 
             // BookUserControl
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(textBox7);
             Controls.Add(textBox6);
@@ -191,8 +202,10 @@ namespace ModelView
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "BookUserControl";
-            Size = new Size(312, 370);
+            Size = new Size(357, 493);
+            Load += BookUserControl_Load;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -16,6 +16,24 @@ namespace ModelView
         }
 
         /// <summary>
+        /// Событие проверки ввода года кол-ва страниц
+        /// </summary>
+        private void CountPage_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.CheckPage(e);
+        }
+
+        /// <summary>
+        /// Событие проверки ввода года издания
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Year_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.CheckAge(e);
+        }
+
+        /// <summary>
         /// Метод для получения объекта Edition с
         /// параметрами введенными из textBox
         /// </summary>
@@ -66,6 +84,11 @@ namespace ModelView
             InputParameters(actions);
 
             return magazine;
+        }
+
+        private void MagazineUserControl_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
