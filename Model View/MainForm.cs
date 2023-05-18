@@ -149,11 +149,33 @@ namespace ModelView
 
             var xmlSerializer = new XmlSerializer
                 (typeof(BindingList<EditionBase>));
-
-            using (var file = new StreamReader(path))
+            try
             {
-                _editionList = (BindingList<EditionBase>)xmlSerializer.
-                    Deserialize(file);
+                using (var file = new StreamReader(path))
+                {
+                    _editionList = (BindingList<EditionBase>)xmlSerializer
+                        .Deserialize(file);
+                }
+
+                EditionDataGridView.DataSource = _editionList;
+            }
+            catch (Exception exception)
+            {
+                if (exception.GetType() ==
+                    typeof(InvalidOperationException))
+                {
+                    _ = MessageBox.Show("Ошибка в загрузке файла." +
+                        "Возможно файл поврежден.");
+                }
+                else if (exception.GetType() ==
+                    typeof(ArgumentException))
+                {
+                    _ = MessageBox.Show("Структура загружаемых файлов повреждена.");
+                }
+                else
+                {
+                    throw;
+                }
             }
 
             EditionDataGridView.DataSource = _editionList;
