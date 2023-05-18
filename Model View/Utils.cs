@@ -1,8 +1,10 @@
 
 namespace ModelView
 {
+    //TODO: XML
     public static class Utils
     {
+        //TODO: duplication
         /// <summary>
         /// Метод позволяющий вводить только
         /// числа, запятые и точки.
@@ -24,6 +26,7 @@ namespace ModelView
             }
         }
 
+        //TODO: duplication
         /// <summary>
         /// Метод позволяющий вводить только
         /// числа, запятые и точки.

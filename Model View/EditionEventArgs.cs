@@ -3,6 +3,7 @@ using System.ComponentModel;
 
 namespace ModelView
 {
+    //TODO: separate
     /// <summary>
     /// Класс MotionEventArgs.
     /// </summary>

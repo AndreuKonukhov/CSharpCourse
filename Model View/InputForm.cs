@@ -58,8 +58,7 @@ namespace ModelView
         private void ComboBoxEditionTypes_SelectedIndexChanged
             (object sender, EventArgs e)
         {
-            string selectedState = ComboBoxEditionTypes.SelectedItem.
-            ToString();
+            string selectedState = ComboBoxEditionTypes.SelectedItem.ToString();
 
             //Перебор всех UserControl,
             //Отображение выбранного и скрытие остальных.
@@ -99,14 +98,11 @@ namespace ModelView
                 }
                 catch (Exception exception)
                 {
-                    if (exception.GetType() == typeof
-                        (ArgumentOutOfRangeException) ||
-                        exception.GetType() == typeof
-                        (ArgumentException) ||
-                        exception.GetType() == typeof
-                        (Exception) ||
-                        exception.GetType() == typeof
-                        (System.FormatException))
+                    var tmpExceptionType = exception.GetType();
+                    if (tmpExceptionType == typeof(ArgumentOutOfRangeException)
+                        || tmpExceptionType == typeof(ArgumentException)
+                        || tmpExceptionType == typeof(Exception)
+                        || tmpExceptionType == typeof(FormatException))
                     {
                         _ = MessageBox.Show
                             ($"Некоректный ввод.\n" +

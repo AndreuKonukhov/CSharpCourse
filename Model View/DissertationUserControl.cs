@@ -91,6 +91,7 @@ namespace ModelView
             return dissertation;
         }
 
+        //TODO: remove
         private void DissertationUserControl_Load(object sender, EventArgs e)
         {
 

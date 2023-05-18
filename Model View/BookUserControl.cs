@@ -86,6 +86,7 @@ namespace ModelView
             return book;
         }
 
+        //TODO: remove
         private void BookUserControl_Load(object sender, EventArgs e)
         {
 

@@ -71,11 +71,9 @@ namespace ModelView
                 foreach (DataGridViewRow row in
                 EditionDataGridView.SelectedRows)
                 {
-                    _ = _editionList.Remove(row.DataBoundItem
-                    as EditionBase);
+                    _ = _editionList.Remove(row.DataBoundItem as EditionBase);
 
-                    _ = _filt.Remove(row.DataBoundItem
-                    as EditionBase);
+                    _ = _filt.Remove(row.DataBoundItem as EditionBase);
                 }
             }
         }
