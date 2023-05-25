@@ -30,7 +30,7 @@ namespace ModelView
         /// <param name="e"></param>
         private void Year_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Utils.CheckAge(e);
+            Utils.CheckInput(e);
         }
 
         /// <summary>
@@ -84,12 +84,6 @@ namespace ModelView
             InputParameters(actions);
 
             return book;
-        }
-
-        //TODO: remove
-        private void BookUserControl_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -27,12 +27,12 @@ namespace ModelView
         /// <summary>
         /// Обработчик события фильтрации изданий.
         /// </summary>
-        private EventHandler<EditionEventArgs> _editionListFiltered;
+        private EventHandler<EditionEventArgsList> _editionListFiltered;
 
         /// <summary>
         /// Обработчик события фильтрации изданий.
         /// </summary>
-        public EventHandler<EditionEventArgs> EditionListFiltered
+        public EventHandler<EditionEventArgsList> EditionListFiltered
         {
             get => _editionListFiltered;
             set => _editionListFiltered = value;
@@ -110,7 +110,7 @@ namespace ModelView
 
             action[0].Invoke(typeFilteredList);
             action[1].Invoke(typeFilteredList);
-            var eventArgs = new EditionEventArgs
+            var eventArgs = new EditionEventArgsList
                 (textFilteredList);
             EditionListFiltered?.Invoke(this, eventArgs);
         }
@@ -122,7 +122,7 @@ namespace ModelView
         /// <param name="e">Event argument.</param>
         private void ResetButton_Click(object sender, EventArgs e)
         {
-            var eventArgs = new EditionEventArgs(EditionListMain);
+            var eventArgs = new EditionEventArgsList(EditionListMain);
             EditionListFiltered?.Invoke(this, eventArgs);
         }
     }

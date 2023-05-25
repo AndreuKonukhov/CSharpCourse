@@ -30,7 +30,7 @@ namespace ModelView
         /// <param name="e"></param>
         private void Year_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Utils.CheckAge(e);
+            Utils.CheckInput(e);
         }
 
         /// <summary>
@@ -89,12 +89,6 @@ namespace ModelView
             InputParameters(actions);
 
             return dissertation;
-        }
-
-        //TODO: remove
-        private void DissertationUserControl_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

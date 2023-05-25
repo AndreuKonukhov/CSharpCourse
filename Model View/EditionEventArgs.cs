@@ -1,11 +1,10 @@
 using Model;
-using System.ComponentModel;
 
 namespace ModelView
 {
-    //TODO: separate
+    //TODO(+): separate
     /// <summary>
-    /// Класс MotionEventArgs.
+    /// Класс EditionEventArgs.
     /// </summary>
     public class EditionEventArgs : EventArgs
     {
@@ -15,27 +14,12 @@ namespace ModelView
         public EditionBase Edition { get; private set; }
 
         /// <summary>
-        /// Отфильтрованный список библиотечных изданий.
-        /// </summary>
-        public BindingList<EditionBase> EditionListFiltered { get; private set; }
-
-        /// <summary>
         /// Конструктор класса EditionEventArgs
         /// </summary>
         /// <param name="edition">Экземпляр класса EditionBase.</param>
         public EditionEventArgs(EditionBase edition)
         {
             Edition = edition;
-        }
-
-        /// <summary>
-        /// Конструктор класса EditionEventArgs
-        /// </summary>
-        /// <param name="editionListFiltered">
-        /// Отфильтрованный список библиотечных изданий.</param>
-        public EditionEventArgs(BindingList<EditionBase> editionListFiltered)
-        {
-            EditionListFiltered = editionListFiltered;
         }
     }
 }

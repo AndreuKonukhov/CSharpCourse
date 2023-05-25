@@ -205,7 +205,6 @@ namespace ModelView
             Margin = new Padding(3, 4, 3, 4);
             Name = "BookUserControl";
             Size = new Size(357, 493);
-            Load += BookUserControl_Load;
             ResumeLayout(false);
             PerformLayout();
         }

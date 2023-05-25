@@ -1,7 +1,10 @@
 
 namespace ModelView
 {
-    //TODO: XML
+    //TODO(+): XML
+    /// <summary>
+    /// Класс Utils
+    /// </summary>
     public static class Utils
     {
         //TODO: duplication
@@ -11,16 +14,16 @@ namespace ModelView
         /// Использование BackSpace.
         /// </summary>
         /// <param name="e"></param>
-        public static void CheckAge(KeyPressEventArgs e)
+        public static void CheckInput(KeyPressEventArgs e)
         {
             int backSpace = 8;
 
             //цифры, знак "-" и клавиша BackSpace
             char number = e.KeyChar;
-            if ((e.KeyChar <= '0' ||
-                e.KeyChar >= '9') &&
+            if ((number <= '0' ||
+                number >= '9') &&
                 number != backSpace &&
-                e.KeyChar != '-')
+                number != '-')
             {
                 e.Handled = true;
             }

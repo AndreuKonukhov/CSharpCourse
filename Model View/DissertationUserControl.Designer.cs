@@ -1,4 +1,4 @@
-﻿namespace ModelView
+namespace ModelView
 {
     partial class DissertationUserControl
     {
@@ -228,7 +228,6 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "DissertationUserControl";
             Size = new Size(357, 493);
-            Load += DissertationUserControl_Load;
             ResumeLayout(false);
             PerformLayout();
         }

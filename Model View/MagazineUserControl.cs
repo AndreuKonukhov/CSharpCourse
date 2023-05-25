@@ -30,7 +30,7 @@ namespace ModelView
         /// <param name="e"></param>
         private void Year_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Utils.CheckAge(e);
+            Utils.CheckInput(e);
         }
 
         /// <summary>
