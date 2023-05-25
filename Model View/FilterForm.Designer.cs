@@ -115,6 +115,7 @@ namespace ModelView
             Name = "FilterForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FilterForm";
+            FormClosing += FilterForm_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }

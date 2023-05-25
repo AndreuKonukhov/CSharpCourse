@@ -1,5 +1,6 @@
 using Model;
 using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace ModelView
 {
@@ -60,6 +61,22 @@ namespace ModelView
 
             EditionTypeCheckedListBox.Items.AddRange
                 (_listBoxToEditionType.Keys.ToArray());
+
+            for (int i = 0; i < EditionTypeCheckedListBox.Items.Count; i++)
+            {
+                EditionTypeCheckedListBox.SetItemChecked(i, true);
+            }
+        }
+
+        /// <summary>
+        /// Событие закрытия формы
+        /// </summary>
+        /// <param name="sender">ResetButton</param>
+        /// <param name="e">Event argument.</param>
+        private void FilterForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var eventArgs = new EditionEventArgsList(EditionListMain);
+            EditionListFiltered?.Invoke(this, eventArgs);
         }
 
         /// <summary>
@@ -99,7 +116,8 @@ namespace ModelView
                 {
                     foreach (var edition in typeFilteredList)
                     {
-                        if (edition.GetInfo.Contains(textBox.Text))
+                        if (edition.GetInfo.ToUpper()
+                        .Contains(textBox.Text.ToUpper()))
                         {
                             textFilteredList.Add(edition);
                         }
