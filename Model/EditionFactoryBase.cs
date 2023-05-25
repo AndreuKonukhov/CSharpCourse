@@ -1,3 +1,5 @@
+using System;
+
 namespace Model
 {
     /// <summary>
@@ -13,26 +15,25 @@ namespace Model
         public abstract EditionBase GetInstance(EditionType editionType);
 
         /// <summary>
-        /// Get random value.
+        /// Метод возвращающий случайного автора издания.
         /// </summary>
-        /// <param name="maxValue">Max value.</param>
-        /// <param name="onlyPositive">Input True to get positive value
-        /// for sure.</param>
-        /// <returns>A positive/negative value.</returns>
+        /// <returns>ФИО автора издания.</returns>
+        public string GetRandomString(string[] author)
+        {
+            var random = new Random();
+            string randomAuthor = author[random.Next(author.Length)];
+            return randomAuthor;
+        }
+
         public string GetRandomAuthor()
         {
-            var rnd = new Random();
-            var plusMinus = rnd.Next(2);
-            var tmpValue = plusMinus == 0
-                ? Math.Round(rnd.NextDouble() * maxValue, 2)
-                : -Math.Round(rnd.NextDouble() * maxValue, 2);
-
-            if (onlyPositive)
+            var random = new Random();
+            string[] author =
             {
-                tmpValue = Math.Abs(tmpValue);
-            }
-
-            return tmpValue;
+                "Прохоров А.В.", "Кац И.М.", "Конухов А.В.", "Соловьёв М.Б."
+            };
+            string randomAuthor = author[random.Next(author.Length)];
+            return randomAuthor;
         }
 
 

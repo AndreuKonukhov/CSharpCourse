@@ -42,6 +42,7 @@ namespace ModelView
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
+            button5 = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -180,11 +181,21 @@ namespace ModelView
             button4.UseVisualStyleBackColor = true;
             button4.Click += Button4_Click;
             // 
+            // button5
+            // 
+            button5.Location = new Point(23, 481);
+            button5.Name = "button5";
+            button5.Size = new Size(128, 27);
+            button5.TabIndex = 13;
+            button5.Text = "button5";
+            button5.UseVisualStyleBackColor = true;
+            // 
             // InputForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(396, 555);
+            Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -220,5 +231,6 @@ namespace ModelView
         private Button button2;
         private Button button3;
         private Button button4;
+        private Button button5;
     }
 }

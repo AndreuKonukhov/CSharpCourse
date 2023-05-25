@@ -14,53 +14,93 @@ namespace Model
         /// types.</exception>
         public override EditionBase GetInstance(EditionType editionType)
         {
-            const int minValue = 10;
-            const int maxValue = 10;
+            const int minYear = -1000;
+            const int maxYear = 2023;
+            const int minPage = -1000;
+            const int maxPage = 2023;
+
+            var tmpYear = GetRandomValue(minYear, maxYear);
+            var tmpPageCount = GetRandomValue(minPage, maxPage);
+
+            string[] authors =
+            {
+                "Кейдж Д.","Блэйд С.","Лю Кан","Прохоров А.В.",
+                "Кац И.М.", "Конухов А.В.", "Соловьёв М.Б."
+            };
+
+            string[] names =
+            {
+                "169 Причин посутипить на СО", "21 миф о СО ЕЭС",
+                "Высокие зарплаты в СО - правда или ложь?",
+                "Лабораторные по ООП своими руками",
+                "Жаренные зеленые помидоры", "История СО ЕЭС",
+                "Иновации","Применение ИНС"
+            };
+
+            string[] typesBook =
+            {
+                "учебное пособие","энциклопедия","","эпическая поэма",
+                "роман", "справочник", "биография"
+            };
+
+            string[] places =
+            {
+                "Москва","Томск","Париж","Мюнхен"
+            };
+
+            string[] publishers =
+            {
+                "ТПУ","ТУСУР","МГУ","Феникс",
+                "Ювента", "ИНФРА-М"
+            };
+
+
+
+            string[] namesConference =
+            {
+                "Международная конференция",
+                "Конференция им. Ясникова"
+            };
+
 
             switch (editionType)
             {
                 case (EditionType.Book):
                     {
-                        var tmpInitCoordinate = GetRandomValue
-                            (maxValue, false);
+                        var tmpAuthor = GetRandomString(authors);
+                        var tmpName = GetRandomString(names);
+                        var tmpType = GetRandomString(typesBook);
+                        var tmpPlace = GetRandomString(places);
+                        var tmpPublisher = GetRandomString(publishers);
 
-                        var tmpSpeed = GetRandomValue(maxValue, false);
-
-                        var tmpTime = GetRandomValue(maxValue, true);
-
-                        return new UniformMotion
-                            (tmpInitCoordinate, tmpSpeed, tmpTime);
+                        return new Book
+                            (tmpAuthor, tmpName, tmpType, tmpPlace,
+                            tmpPublisher, tmpYear, tmpPageCount);
                     }
 
-                case (MotionType.UniformAccelMotion):
+                case (EditionType.Collection):
                     {
-                        var tmpInitCoordinate = GetRandomValue
-                            (maxValue, false);
+                        var tmpConference = GetRandomString(namesConference);
+                        var tmpName = GetRandomString(names);
+                        var tmpPlace = GetRandomString(places);
+                        var tmpPublisher = GetRandomString(publishers);
 
-                        var tmpAcceleration = GetRandomValue
-                            (maxValue, false);
-
-                        var tmpSpeed = GetRandomValue(maxValue, false);
-
-                        var tmpTime = GetRandomValue(maxValue, true);
-
-                        return new UniformAccelMotion(tmpSpeed,
-                            tmpInitCoordinate, tmpAcceleration, tmpTime);
+                        return new Collection
+                            (tmpName, tmpConference, tmpPlace,
+                            tmpPublisher, tmpYear, tmpPageCount);
                     }
 
-                case (MotionType.OscilMotion):
+                case (EditionType.Dissertation):
                     {
-                        var tmpAmplitude = GetRandomValue(maxValue, true);
+                        var tmpAuthor = GetRandomString(authors);
+                        var tmpName = GetRandomString(names);
+                        var tmpType = GetRandomString(typesBook);
+                        var tmpPlace = GetRandomString(places);
+                        var tmpPublisher = GetRandomString(publishers);
 
-                        var tmpCyclFrequency = GetRandomValue
-                            (maxValue, true);
-
-                        var tmpInitPhase = GetRandomValue(maxValue, false);
-
-                        var tmpTime = GetRandomValue(maxValue, true);
-
-                        return new OscilMotion(tmpAmplitude,
-                            tmpCyclFrequency, tmpInitPhase, tmpTime);
+                        return new Dissertation
+                            (tmpAuthor, tmpName, tmpType, tmpPlace,
+                            tmpPublisher, tmpYear, tmpPageCount);
                     }
 
                 default:
