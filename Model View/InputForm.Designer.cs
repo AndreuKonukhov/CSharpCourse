@@ -38,11 +38,7 @@ namespace ModelView
             groupBox1 = new GroupBox();
             OKbutton = new Button();
             Cancelbutton = new Button();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
+            RandomButton = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -137,69 +133,25 @@ namespace ModelView
             Cancelbutton.UseVisualStyleBackColor = true;
             Cancelbutton.Click += Cancelbutton_Click;
             // 
-            // button1
+            // RandomButton
             // 
-            button1.Location = new Point(27, 526);
-            button1.Margin = new Padding(3, 2, 3, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(82, 22);
-            button1.TabIndex = 9;
-            button1.Text = "Книга";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += Button1_Click;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(115, 526);
-            button2.Margin = new Padding(3, 2, 3, 2);
-            button2.Name = "button2";
-            button2.Size = new Size(82, 22);
-            button2.TabIndex = 10;
-            button2.Text = "Сборник";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += Button2_Click;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(203, 526);
-            button3.Margin = new Padding(3, 2, 3, 2);
-            button3.Name = "button3";
-            button3.Size = new Size(82, 22);
-            button3.TabIndex = 11;
-            button3.Text = "Диссертация";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += Button3_Click;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(291, 526);
-            button4.Margin = new Padding(3, 2, 3, 2);
-            button4.Name = "button4";
-            button4.Size = new Size(82, 22);
-            button4.TabIndex = 12;
-            button4.Text = "Журнал";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += Button4_Click;
-            // 
-            // button5
-            // 
-            button5.Location = new Point(23, 481);
-            button5.Name = "button5";
-            button5.Size = new Size(128, 27);
-            button5.TabIndex = 13;
-            button5.Text = "button5";
-            button5.UseVisualStyleBackColor = true;
+            RandomButton.BackColor = SystemColors.GradientActiveCaption;
+            RandomButton.FlatStyle = FlatStyle.Flat;
+            RandomButton.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            RandomButton.Location = new Point(23, 481);
+            RandomButton.Name = "RandomButton";
+            RandomButton.Size = new Size(136, 27);
+            RandomButton.TabIndex = 13;
+            RandomButton.Text = "Случайное издание";
+            RandomButton.UseVisualStyleBackColor = false;
+            RandomButton.Click += AddRandomEditionButton_Click;
             // 
             // InputForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(396, 555);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            ClientSize = new Size(396, 522);
+            Controls.Add(RandomButton);
             Controls.Add(Cancelbutton);
             Controls.Add(OKbutton);
             Controls.Add(groupBox1);
@@ -227,10 +179,6 @@ namespace ModelView
         private GroupBox groupBox1;
         private Button OKbutton;
         private Button Cancelbutton;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
+        private Button RandomButton;
     }
 }

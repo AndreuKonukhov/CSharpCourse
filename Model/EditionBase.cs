@@ -157,7 +157,7 @@ namespace Model
         /// <exception cref="Exception"></exception>
         protected void CheckLanguage(string value)
         {
-            var regex = new Regex(@"^([-'.,a-zA-Z\s]|[-'.,а-яА-Я\s])*$");
+            var regex = new Regex(@"^([-'.,a-zA-Z\s]|[-'ё.,а-яА-Я\s])*$");
             if (!regex.IsMatch(value))
             {
                 throw new Exception("Строка должна быть только на " +

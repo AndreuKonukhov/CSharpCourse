@@ -134,7 +134,7 @@ namespace ModelView
             // 
             // ClearButton
             // 
-            ClearButton.ForeColor = SystemColors.WindowFrame;
+            ClearButton.ForeColor = SystemColors.WindowText;
             ClearButton.Location = new Point(13, 252);
             ClearButton.Margin = new Padding(3, 2, 3, 2);
             ClearButton.Name = "ClearButton";

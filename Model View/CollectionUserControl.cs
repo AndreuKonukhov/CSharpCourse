@@ -20,7 +20,8 @@ namespace ModelView
         /// </summary>
         private void CountPage_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Utils.CheckPage(e);
+            var dopSimvol = new List<char>("-");
+            Utils.CheckInput(e, dopSimvol);
         }
 
         /// <summary>
