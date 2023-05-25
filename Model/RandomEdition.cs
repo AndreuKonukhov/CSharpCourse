@@ -14,11 +14,12 @@ namespace Model
         /// types.</exception>
         public override EditionBase GetInstance(EditionType editionType)
         {
+            const int minValue = 10;
             const int maxValue = 10;
 
             switch (editionType)
             {
-                case (MotionType.UniformMotion):
+                case (EditionType.Book):
                     {
                         var tmpInitCoordinate = GetRandomValue
                             (maxValue, false);
