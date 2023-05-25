@@ -7,7 +7,7 @@ namespace ModelView
     /// </summary>
     public static class Utils
     {
-        //TODO: duplication
+        //TODO(+): duplication
         /// <summary>
         /// Метод позволяющий вводить только
         /// числа, запятые и точки.

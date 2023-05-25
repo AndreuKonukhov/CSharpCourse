@@ -126,6 +126,10 @@ namespace ModelView
         }
 
 #if DEBUG
+
+        /// <summary>
+        /// Событие добавление случайного издания при нажатии кнопки
+        /// </summary>
         private void AddRandomEditionButton_Click(object sender, EventArgs e)
         {
             var rnd = new Random();
