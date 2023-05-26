@@ -2,7 +2,6 @@ using Model;
 
 namespace ModelView
 {
-    //TODO(+): separate
     /// <summary>
     /// Класс EditionEventArgs.
     /// </summary>
