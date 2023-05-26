@@ -41,19 +41,17 @@ namespace ModelView
             // 
             EditionTypeCheckedListBox.CheckOnClick = true;
             EditionTypeCheckedListBox.FormattingEnabled = true;
-            EditionTypeCheckedListBox.Location = new Point(33, 32);
-            EditionTypeCheckedListBox.Margin = new Padding(3, 2, 3, 2);
+            EditionTypeCheckedListBox.Location = new Point(38, 43);
             EditionTypeCheckedListBox.Name = "EditionTypeCheckedListBox";
-            EditionTypeCheckedListBox.Size = new Size(191, 76);
+            EditionTypeCheckedListBox.Size = new Size(218, 92);
             EditionTypeCheckedListBox.TabIndex = 0;
             EditionTypeCheckedListBox.TabStop = false;
             // 
             // FilterButton
             // 
-            FilterButton.Location = new Point(33, 177);
-            FilterButton.Margin = new Padding(3, 2, 3, 2);
+            FilterButton.Location = new Point(38, 236);
             FilterButton.Name = "FilterButton";
-            FilterButton.Size = new Size(92, 22);
+            FilterButton.Size = new Size(105, 29);
             FilterButton.TabIndex = 1;
             FilterButton.Text = "Применить";
             FilterButton.UseVisualStyleBackColor = true;
@@ -61,10 +59,9 @@ namespace ModelView
             // 
             // ResetButton
             // 
-            ResetButton.Location = new Point(140, 177);
-            ResetButton.Margin = new Padding(3, 2, 3, 2);
+            ResetButton.Location = new Point(160, 236);
             ResetButton.Name = "ResetButton";
-            ResetButton.Size = new Size(84, 22);
+            ResetButton.Size = new Size(96, 29);
             ResetButton.TabIndex = 2;
             ResetButton.Text = "Сбросить";
             ResetButton.UseVisualStyleBackColor = true;
@@ -72,45 +69,42 @@ namespace ModelView
             // 
             // textBox
             // 
-            textBox.Location = new Point(33, 145);
-            textBox.Margin = new Padding(3, 2, 3, 2);
+            textBox.Location = new Point(38, 193);
             textBox.Name = "textBox";
-            textBox.Size = new Size(191, 23);
+            textBox.Size = new Size(218, 27);
             textBox.TabIndex = 3;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(33, 128);
+            label1.Location = new Point(38, 171);
             label1.Name = "label1";
-            label1.Size = new Size(102, 15);
+            label1.Size = new Size(127, 20);
             label1.TabIndex = 4;
             label1.Text = "Поиск по строке:";
             // 
             // groupBox1
             // 
-            groupBox1.Location = new Point(21, 9);
-            groupBox1.Margin = new Padding(3, 2, 3, 2);
+            groupBox1.Location = new Point(24, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 2, 3, 2);
-            groupBox1.Size = new Size(215, 109);
+            groupBox1.Size = new Size(246, 145);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "Тип издания";
             // 
             // FilterForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(262, 216);
+            ClientSize = new Size(299, 288);
             Controls.Add(textBox);
             Controls.Add(ResetButton);
             Controls.Add(FilterButton);
             Controls.Add(EditionTypeCheckedListBox);
             Controls.Add(groupBox1);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             Name = "FilterForm";
             StartPosition = FormStartPosition.CenterScreen;

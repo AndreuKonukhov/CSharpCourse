@@ -85,11 +85,14 @@ namespace ModelView
         /// <param name="e">Event argument.</param>
         private void ClearButton_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Вы действительно хотите очистить " +
+            if (_editionList.Count != 0)
+            {
+                if (MessageBox.Show("Вы действительно хотите очистить " +
                 "список всех изданий?", "Очистка всех изданий",
                  MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                _editionList.Clear();
+                {
+                    _editionList.Clear();
+                }
             }
         }
 
@@ -145,38 +148,45 @@ namespace ModelView
                 return;
             }
 
-            var xmlSerializer = new XmlSerializer
-                (typeof(BindingList<EditionBase>));
-            try
+
+            if (MessageBox.Show("Вы действительно хотите загрузить новый " +
+                "список изданий?\n Существующий список будет перезаписан.",
+                "Загрузка новых изданий",
+                 MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                using (var file = new StreamReader(path))
+                var xmlSerializer = new XmlSerializer
+                (typeof(BindingList<EditionBase>));
+                try
                 {
-                    _editionList = (BindingList<EditionBase>)xmlSerializer
-                        .Deserialize(file);
+                    using (var file = new StreamReader(path))
+                    {
+                        _editionList = (BindingList<EditionBase>)xmlSerializer
+                            .Deserialize(file);
+                    }
+
+                    EditionDataGridView.DataSource = _editionList;
+                }
+                catch (Exception exception)
+                {
+                    if (exception.GetType() ==
+                        typeof(InvalidOperationException))
+                    {
+                        _ = MessageBox.Show("Ошибка в загрузке файла." +
+                            "Возможно файл поврежден.");
+                    }
+                    else if (exception.GetType() ==
+                        typeof(ArgumentException))
+                    {
+                        _ = MessageBox.Show("Структура загружаемых файлов повреждена.");
+                    }
+                    else
+                    {
+                        throw;
+                    }
                 }
 
                 EditionDataGridView.DataSource = _editionList;
             }
-            catch (Exception exception)
-            {
-                if (exception.GetType() ==
-                    typeof(InvalidOperationException))
-                {
-                    _ = MessageBox.Show("Ошибка в загрузке файла." +
-                        "Возможно файл поврежден.");
-                }
-                else if (exception.GetType() ==
-                    typeof(ArgumentException))
-                {
-                    _ = MessageBox.Show("Структура загружаемых файлов повреждена.");
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            EditionDataGridView.DataSource = _editionList;
         }
 
         /// <summary>

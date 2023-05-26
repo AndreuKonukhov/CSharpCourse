@@ -61,15 +61,14 @@ namespace ModelView
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             EditionDataGridView.DefaultCellStyle = dataGridViewCellStyle1;
             EditionDataGridView.GridColor = SystemColors.MenuText;
-            EditionDataGridView.Location = new Point(14, 54);
-            EditionDataGridView.Margin = new Padding(3, 2, 3, 2);
+            EditionDataGridView.Location = new Point(16, 72);
             EditionDataGridView.Name = "EditionDataGridView";
             EditionDataGridView.RowHeadersVisible = false;
             EditionDataGridView.RowHeadersWidth = 51;
             EditionDataGridView.RowTemplate.Height = 29;
             EditionDataGridView.RowTemplate.Resizable = DataGridViewTriState.True;
             EditionDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            EditionDataGridView.Size = new Size(830, 196);
+            EditionDataGridView.Size = new Size(949, 261);
             EditionDataGridView.TabIndex = 0;
             // 
             // AddButton
@@ -85,10 +84,9 @@ namespace ModelView
             AddButton.FlatStyle = FlatStyle.Flat;
             AddButton.Font = new Font("Akrobat Light", 9F, FontStyle.Regular, GraphicsUnit.Point);
             AddButton.ForeColor = SystemColors.ScrollBar;
-            AddButton.Location = new Point(14, 20);
-            AddButton.Margin = new Padding(3, 2, 3, 2);
+            AddButton.Location = new Point(16, 27);
             AddButton.Name = "AddButton";
-            AddButton.Size = new Size(35, 30);
+            AddButton.Size = new Size(40, 40);
             AddButton.TabIndex = 1;
             AddButton.Text = "\r\n";
             AddButton.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -107,12 +105,10 @@ namespace ModelView
             groupBox1.FlatStyle = FlatStyle.Flat;
             groupBox1.Font = new Font("Arial Unicode MS", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox1.ForeColor = SystemColors.MenuText;
-            groupBox1.Location = new Point(10, 43);
-            groupBox1.Margin = new Padding(3, 2, 3, 2);
+            groupBox1.Location = new Point(11, 57);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 2, 3, 2);
             groupBox1.RightToLeft = RightToLeft.No;
-            groupBox1.Size = new Size(868, 290);
+            groupBox1.Size = new Size(992, 387);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "Библиотечные издания";
@@ -124,10 +120,9 @@ namespace ModelView
             FilterButton.BackgroundImageLayout = ImageLayout.Zoom;
             FilterButton.FlatStyle = FlatStyle.Flat;
             FilterButton.ForeColor = SystemColors.ScrollBar;
-            FilterButton.Location = new Point(115, 24);
-            FilterButton.Margin = new Padding(3, 2, 3, 2);
+            FilterButton.Location = new Point(131, 32);
             FilterButton.Name = "FilterButton";
-            FilterButton.Size = new Size(38, 26);
+            FilterButton.Size = new Size(43, 35);
             FilterButton.TabIndex = 4;
             FilterButton.UseVisualStyleBackColor = false;
             FilterButton.Click += FilterButton_Click;
@@ -135,10 +130,9 @@ namespace ModelView
             // ClearButton
             // 
             ClearButton.ForeColor = SystemColors.WindowText;
-            ClearButton.Location = new Point(13, 252);
-            ClearButton.Margin = new Padding(3, 2, 3, 2);
+            ClearButton.Location = new Point(15, 336);
             ClearButton.Name = "ClearButton";
-            ClearButton.Size = new Size(116, 29);
+            ClearButton.Size = new Size(133, 39);
             ClearButton.TabIndex = 3;
             ClearButton.Text = "Очистить";
             ClearButton.UseVisualStyleBackColor = true;
@@ -153,10 +147,9 @@ namespace ModelView
             RemoveButton.FlatStyle = FlatStyle.Flat;
             RemoveButton.Font = new Font("Akrobat Light", 9F, FontStyle.Regular, GraphicsUnit.Point);
             RemoveButton.ForeColor = SystemColors.ScrollBar;
-            RemoveButton.Location = new Point(64, 20);
-            RemoveButton.Margin = new Padding(3, 2, 3, 2);
+            RemoveButton.Location = new Point(73, 27);
             RemoveButton.Name = "RemoveButton";
-            RemoveButton.Size = new Size(31, 30);
+            RemoveButton.Size = new Size(35, 40);
             RemoveButton.TabIndex = 2;
             RemoveButton.UseVisualStyleBackColor = false;
             RemoveButton.Click += RemoveButton_Click;
@@ -169,8 +162,8 @@ namespace ModelView
             menuStrip1.Items.AddRange(new ToolStripItem[] { loadToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(5, 2, 0, 2);
-            menuStrip1.Size = new Size(55, 24);
+            menuStrip1.Padding = new Padding(6, 3, 0, 3);
+            menuStrip1.Size = new Size(67, 30);
             menuStrip1.TabIndex = 3;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -180,38 +173,37 @@ namespace ModelView
             loadToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { LoadFileToolStripMenuItem, SaveFileToolStripMenuItem });
             loadToolStripMenuItem.ForeColor = Color.Black;
             loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            loadToolStripMenuItem.Size = new Size(48, 20);
+            loadToolStripMenuItem.Size = new Size(59, 24);
             loadToolStripMenuItem.Text = "Файл";
             // 
             // LoadFileToolStripMenuItem
             // 
             LoadFileToolStripMenuItem.Name = "LoadFileToolStripMenuItem";
-            LoadFileToolStripMenuItem.Size = new Size(133, 22);
+            LoadFileToolStripMenuItem.Size = new Size(166, 26);
             LoadFileToolStripMenuItem.Text = "Загрузить";
             LoadFileToolStripMenuItem.Click += LoadFileToolStripMenuItem_Click;
             // 
             // SaveFileToolStripMenuItem
             // 
             SaveFileToolStripMenuItem.Name = "SaveFileToolStripMenuItem";
-            SaveFileToolStripMenuItem.Size = new Size(133, 22);
+            SaveFileToolStripMenuItem.Size = new Size(166, 26);
             SaveFileToolStripMenuItem.Text = "Сохранить";
             SaveFileToolStripMenuItem.Click += SaveFileToolStripMenuItem_Click;
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ScrollBar;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(891, 355);
+            ClientSize = new Size(1018, 473);
             Controls.Add(groupBox1);
             Controls.Add(menuStrip1);
             ForeColor = SystemColors.ControlText;
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
-            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;

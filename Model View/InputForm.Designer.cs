@@ -47,54 +47,57 @@ namespace ModelView
             ComboBoxEditionTypes.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxEditionTypes.ForeColor = SystemColors.WindowText;
             ComboBoxEditionTypes.FormattingEnabled = true;
-            ComboBoxEditionTypes.Location = new Point(41, 40);
-            ComboBoxEditionTypes.Margin = new Padding(3, 2, 3, 2);
+            ComboBoxEditionTypes.Location = new Point(47, 53);
             ComboBoxEditionTypes.Name = "ComboBoxEditionTypes";
-            ComboBoxEditionTypes.Size = new Size(141, 23);
+            ComboBoxEditionTypes.Size = new Size(161, 28);
             ComboBoxEditionTypes.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(42, 22);
+            label1.Location = new Point(48, 29);
             label1.Name = "label1";
-            label1.Size = new Size(77, 15);
+            label1.Size = new Size(100, 20);
             label1.TabIndex = 1;
             label1.Text = "Тип издания:";
             // 
             // bookUserControl1
             // 
             bookUserControl1.BackColor = SystemColors.MenuBar;
-            bookUserControl1.Location = new Point(20, 20);
+            bookUserControl1.Location = new Point(23, 27);
+            bookUserControl1.Margin = new Padding(3, 5, 3, 5);
             bookUserControl1.Name = "bookUserControl1";
-            bookUserControl1.Size = new Size(312, 370);
+            bookUserControl1.Size = new Size(357, 493);
             bookUserControl1.TabIndex = 2;
             bookUserControl1.Visible = false;
             // 
             // collectionUserControl1
             // 
             collectionUserControl1.BackColor = SystemColors.MenuBar;
-            collectionUserControl1.Location = new Point(20, 20);
+            collectionUserControl1.Location = new Point(23, 27);
+            collectionUserControl1.Margin = new Padding(3, 5, 3, 5);
             collectionUserControl1.Name = "collectionUserControl1";
-            collectionUserControl1.Size = new Size(312, 370);
+            collectionUserControl1.Size = new Size(357, 493);
             collectionUserControl1.TabIndex = 3;
             collectionUserControl1.Visible = false;
             // 
             // dissertationUserControl1
             // 
             dissertationUserControl1.BackColor = SystemColors.MenuBar;
-            dissertationUserControl1.Location = new Point(20, 20);
+            dissertationUserControl1.Location = new Point(23, 27);
+            dissertationUserControl1.Margin = new Padding(3, 5, 3, 5);
             dissertationUserControl1.Name = "dissertationUserControl1";
-            dissertationUserControl1.Size = new Size(312, 370);
+            dissertationUserControl1.Size = new Size(357, 493);
             dissertationUserControl1.TabIndex = 4;
             dissertationUserControl1.Visible = false;
             // 
             // magazineUserControl1
             // 
             magazineUserControl1.BackColor = SystemColors.MenuBar;
-            magazineUserControl1.Location = new Point(20, 20);
+            magazineUserControl1.Location = new Point(23, 27);
+            magazineUserControl1.Margin = new Padding(3, 5, 3, 5);
             magazineUserControl1.Name = "magazineUserControl1";
-            magazineUserControl1.Size = new Size(312, 370);
+            magazineUserControl1.Size = new Size(357, 493);
             magazineUserControl1.TabIndex = 5;
             magazineUserControl1.Visible = false;
             // 
@@ -105,18 +108,21 @@ namespace ModelView
             groupBox1.Controls.Add(magazineUserControl1);
             groupBox1.Controls.Add(bookUserControl1);
             groupBox1.FlatStyle = FlatStyle.Flat;
-            groupBox1.Location = new Point(21, 78);
+            groupBox1.Location = new Point(24, 104);
+            groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(352, 397);
+            groupBox1.Padding = new Padding(3, 4, 3, 4);
+            groupBox1.Size = new Size(402, 529);
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             groupBox1.Text = "Информация об издании";
             // 
             // OKbutton
             // 
-            OKbutton.Location = new Point(175, 481);
+            OKbutton.Location = new Point(200, 641);
+            OKbutton.Margin = new Padding(3, 4, 3, 4);
             OKbutton.Name = "OKbutton";
-            OKbutton.Size = new Size(96, 30);
+            OKbutton.Size = new Size(110, 40);
             OKbutton.TabIndex = 7;
             OKbutton.Text = "OK";
             OKbutton.UseVisualStyleBackColor = true;
@@ -124,10 +130,9 @@ namespace ModelView
             // 
             // Cancelbutton
             // 
-            Cancelbutton.Location = new Point(277, 481);
-            Cancelbutton.Margin = new Padding(3, 2, 3, 2);
+            Cancelbutton.Location = new Point(317, 641);
             Cancelbutton.Name = "Cancelbutton";
-            Cancelbutton.Size = new Size(96, 30);
+            Cancelbutton.Size = new Size(110, 40);
             Cancelbutton.TabIndex = 8;
             Cancelbutton.Text = "Отмена";
             Cancelbutton.UseVisualStyleBackColor = true;
@@ -135,31 +140,33 @@ namespace ModelView
             // 
             // RandomButton
             // 
-            RandomButton.BackColor = SystemColors.GradientActiveCaption;
-            RandomButton.FlatStyle = FlatStyle.Flat;
-            RandomButton.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            RandomButton.Location = new Point(23, 481);
+            RandomButton.BackColor = SystemColors.Control;
+            RandomButton.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            RandomButton.Location = new Point(24, 641);
+            RandomButton.Margin = new Padding(3, 4, 3, 4);
             RandomButton.Name = "RandomButton";
-            RandomButton.Size = new Size(136, 27);
+            RandomButton.Size = new Size(155, 40);
             RandomButton.TabIndex = 13;
             RandomButton.Text = "Случайное издание";
-            RandomButton.UseVisualStyleBackColor = false;
+            RandomButton.UseVisualStyleBackColor = true;
             RandomButton.Click += AddRandomEditionButton_Click;
             // 
             // InputForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(396, 522);
+            AutoSize = true;
+            ClientSize = new Size(453, 696);
             Controls.Add(RandomButton);
             Controls.Add(Cancelbutton);
             Controls.Add(OKbutton);
             Controls.Add(groupBox1);
             Controls.Add(ComboBoxEditionTypes);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
+            MinimizeBox = false;
             Name = "InputForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Добавление издания";
