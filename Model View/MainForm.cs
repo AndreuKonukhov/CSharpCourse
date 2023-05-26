@@ -134,58 +134,20 @@ namespace ModelView
         /// <param name="e">Event argument.</param>
         private void LoadFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var fileBrowser = new OpenFileDialog
+
+            if (_editionList.Count == 0)
             {
-                Filter = "EditionData (*.eda)|*.eda"
-            };
-
-            _ = fileBrowser.ShowDialog();
-
-            var path = fileBrowser.FileName;
-
-            if (string.IsNullOrEmpty(path))
-            {
-                return;
+                Load();
             }
-
-
-            if (MessageBox.Show("Вы действительно хотите загрузить новый " +
-                "список изданий?\n Существующий список будет перезаписан.",
+            else
+            {
+                if (MessageBox.Show("Вы действительно хотите загрузить новый список" +
+                "изданий?\n Существующий список будет перезаписан.",
                 "Загрузка новых изданий",
                  MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                var xmlSerializer = new XmlSerializer
-                (typeof(BindingList<EditionBase>));
-                try
                 {
-                    using (var file = new StreamReader(path))
-                    {
-                        _editionList = (BindingList<EditionBase>)xmlSerializer
-                            .Deserialize(file);
-                    }
-
-                    EditionDataGridView.DataSource = _editionList;
+                    Load();
                 }
-                catch (Exception exception)
-                {
-                    if (exception.GetType() ==
-                        typeof(InvalidOperationException))
-                    {
-                        _ = MessageBox.Show("Ошибка в загрузке файла." +
-                            "Возможно файл поврежден.");
-                    }
-                    else if (exception.GetType() ==
-                        typeof(ArgumentException))
-                    {
-                        _ = MessageBox.Show("Структура загружаемых файлов повреждена.");
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-
-                EditionDataGridView.DataSource = _editionList;
             }
         }
 
@@ -215,5 +177,62 @@ namespace ModelView
 
             FilterButton.Enabled = false;
         }
+
+        private void Load()
+        {
+            var fileBrowser = new OpenFileDialog
+            {
+                Filter = "EditionData (*.eda)|*.eda"
+            };
+
+            _ = fileBrowser.ShowDialog();
+
+            var path = fileBrowser.FileName;
+
+            if (string.IsNullOrEmpty(path))
+            {
+                return;
+            }
+
+            if (_editionList.Count == 0)
+            {
+
+            }
+
+            var xmlSerializer = new XmlSerializer
+            (typeof(BindingList<EditionBase>));
+            try
+            {
+                using (var file = new StreamReader(path))
+                {
+                    _editionList = (BindingList<EditionBase>)xmlSerializer
+                        .Deserialize(file);
+                }
+
+                EditionDataGridView.DataSource = _editionList;
+            }
+
+            catch (Exception exception)
+            {
+                if (exception.GetType() ==
+                    typeof(InvalidOperationException))
+                {
+                    _ = MessageBox.Show("Ошибка в загрузке файла." +
+                        "Возможно файл поврежден.");
+                }
+                else if (exception.GetType() ==
+                    typeof(ArgumentException))
+                {
+                    _ = MessageBox.Show("Структура загружаемых файлов повреждена.");
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            EditionDataGridView.DataSource = _editionList;
+        }
+
     }
 }
